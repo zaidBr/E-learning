@@ -1,0 +1,39 @@
+<div class="user-register">
+    <div class="card-reg">
+        <div class="row  w-100">
+                <div class="col-md-7 d-flex  align-items-center">
+                    <div class="left-card ">
+                        <h5 class="nb-register font-weight-bold text-center mb-4">
+                            <ng-container [ngSwitch]="date">
+                                <span *ngSwitchCase="'month'">{{countRegistration.perMonth}}</span>
+                                <span *ngSwitchCase="'week'">{{countRegistration.perWeek}}</span>
+                                <span *ngSwitchCase="'day'">{{countRegistration.perDay}}</span>
+                                <span *ngSwitchDefault>{{countRegistration.perMonth}}</span>
+                            </ng-container>
+                        </h5>
+                        <div class="txt-reg d-block text-center  text-capitalize" >
+                            Nouvelle Inscription
+                        <ng-container [ngSwitch]="date">
+                            <sub *ngSwitchCase="'month'">Mois</sub>
+                            <sub *ngSwitchCase="'week'">Semaine</sub>
+                            <sub *ngSwitchCase="'day'">Jour</sub>
+                            <sub *ngSwitchDefault>Mois</sub>
+                         </ng-container>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-5 d-flex justify-content-center align-items-center">
+                    <img src="../../../../assets/img/user.png" alt="">
+                </div>
+        </div>
+       
+        <div class="btm-reg">
+            <ng-container [ngSwitch]="date">
+            <button (click)="perDay()" class="text-center  " *ngSwitchCase="'week'">Voir par jour  <i class="fa fa-caret-up"></i> </button>
+            <button (click)="perMonth()" class="text-center   " *ngSwitchCase="'day'">Voir par mois  <i class="fa fa-caret-up"></i> </button>
+            <button (click)="perWeek()" class="text-center   " *ngSwitchDefault="'month'">Voir par semaine  <i class="fa fa-caret-up"></i> </button>
+        </ng-container>
+        </div>
+    </div>
+</div>

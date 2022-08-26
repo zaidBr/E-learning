@@ -1,0 +1,173 @@
+.all-cours{
+    .title1{
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: #303952;
+        margin-bottom: 20px;
+        // margin-top: 10px;
+    }
+    .title4{
+        font-size: 22px;
+        font-weight: 600;
+        color: #6d665c;
+        .nbCourses{
+            color: green;
+            font-weight: bold;
+
+        }
+        .nbChapitres{
+            color: green;
+            font-weight: bold;
+        }
+    }
+    .labell{
+        color: #0d2f4b;
+    }
+    .optionn{
+        color: #0d2f4b;
+        font-size: 17px;
+    }
+    .title3{
+        font-size: 25px;
+        color: #6d665c;
+    }
+    .my-check{
+        height: 30px;
+        width: 30px;
+        border: #0d2f4b;
+    }
+    .labelll{
+        font-size: 20px;
+        color:#6d665c ;
+        margin-left: 15px;
+        padding-top: 5px;
+    }
+    .img-cours{
+        width: 100%;
+        height: 200px;
+    }
+ 
+    .name-cours{
+        font-size: 25px;
+        color: #0d2f4b;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+    .name-cours:hover{
+        cursor: pointer;
+    }
+    .chapteers{
+        padding: 5px 8px;
+        background-color: #f0eeeb;
+        border-radius: 12px;
+        width: 168px;
+        margin-left: 15px;
+        margin-right: 0;
+        }
+        .add-to-cart{
+            background-color: #7979aa;
+            border: none;
+            width:180px;
+            display: block;
+            padding-top: 4px;
+            margin-left: 15px;
+            h5{
+                color: #fff;
+            }
+        }
+    .nb-chapt{
+        color: #0d2f4b;
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .price{
+        background-color:#f0eeeb ;
+        position: absolute;
+        width: 70px;
+        left: 235px;
+        top: 140px;
+        height: 70px;
+        border-radius: 50%;
+        z-index: 1;
+        text-align: center;
+        color: #0d2f4b;
+        padding-top: 23px;
+        font-weight: 600;
+}
+}
+.my-cours:hover{
+    .img-cours{
+        transform:scale(1.06);
+    }
+    .price{
+        background-color: #c5bdb1;
+        color: #265780;
+    }
+}
+.img-cours:hover{
+    cursor: pointer;
+}
+
+.categoriee{
+    h2,h4{
+        text-transform: capitalize;
+        color: #0d2f4b;
+    }
+    h4{
+        padding: 4px 6px;
+        background-color: #c5bdb1;
+        border-radius: 20px;
+    }
+    
+
+}
+
+.periode{
+    h3{
+        padding-bottom: 4px;
+        font-weight: bold;
+        span{
+            color: #0d2f4b;
+            font-weight: 500;
+        }
+    }
+}
+.pricee{
+    h3{
+        padding-bottom: 4px;
+        font-weight: bold;
+        span{
+            color: #0d2f4b;
+            font-weight: 500;
+        }
+    }
+}
+.teacher-details{
+    h3{
+        padding-top: 4px;
+        font-weight: bold;
+
+    }
+}
+.online{
+    h3{
+        padding-bottom: 4px;
+        font-weight: bold;
+        span{
+            color: #0d2f4b;
+            font-weight: 500;
+        }
+    }
+}
+.to-content{
+ padding-bottom: 4px;
+ text-align: center;
+ text-decoration: none;
+}
+.to-content:hover{
+    transform: scale(1.02);
+}
+
+// box-shadow: #b3a086 5px 5px 15px;

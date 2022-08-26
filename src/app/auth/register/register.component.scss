@@ -1,0 +1,45 @@
+.contentt{ 
+    width: 800x;
+    height:600px;
+    background-image:url('../../../assets/img/design/bcgLogin.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    border-radius: 40px;opacity: 0.97;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+}
+.login{
+    margin-top: 30px;
+}
+.titlee{
+
+}
+ .btne{
+    border-radius: 40px;
+    text-align: center;
+    margin-top: 25px;
+    background-color: #111D5E;
+    color: #fff;
+
+  
+}
+input{
+    border-radius: 2rem;
+    background:rgba(255,255,255,.08);
+    width: 350px;
+    margin-top: 30px;
+    color: #fff!important;
+}
+input::placeholder{
+    color:#fff!important;
+
+}
+input:hover{
+    background:rgba(255,255,255,.01)
+}
+input:focus{
+    background:rgba(255,255,255,.01)
+}

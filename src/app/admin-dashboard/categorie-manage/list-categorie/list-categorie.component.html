@@ -1,0 +1,28 @@
+<h1>Liste des categories</h1>
+<div class="add d-flex justify-content-end mb-4">
+  <a class="btn text-decoration-none list-add-btn" [routerLink]="['add']" >Ajouter Une Categorie <img src="../../../../assets/img/menu.png" alt=""></a>
+</div>
+<div class="row mb-2">
+    <div class="col-lg-4" *ngFor="let c of categories
+    | paginate
+    : {
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count
+      };
+let i = index">
+        <app-categorieee  (categorieDeleted)="deleteCategorie($event,i)" [index]="i" [categorie]="c">
+            <h1>{{c.name}}</h1>
+            <p>{{c.description}}</p>
+            <span>{{c.createdAt}}</span>
+       </app-categorieee>
+    </div>
+</div>
+<div class="d-flex justify-content-center mt-5 mb-3">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>

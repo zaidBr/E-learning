@@ -1,0 +1,51 @@
+.our-service{
+    background-color: #ebf1f6;
+    margin-top: 0;
+    height: 550px;
+    padding-top: 120px;
+    position: relative;
+    .title-service{
+        text-transform: capitalize;
+        margin-bottom: 90px;
+        font-size: 40px;
+        font-weight: 900;
+        color: #050446;
+        line-height: 50px;
+    }
+    .cloud-icon{
+        position: absolute;
+        top: 20px;
+        left: 70px;
+    }
+    .card-custom{
+        height: 210px;
+        width: 310px;
+        border-radius: 20px;
+        padding: 7px;
+        .img-ccard{
+            margin-left: 39%;
+            margin-bottom: 20px;
+        }
+        h3{
+            font-size: 25px;
+            color: #000B49;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+        h5{
+            font-size: 18px;
+            color: #050446;
+            letter-spacing: 2px;
+        }
+    }
+    .card1{
+        background-color:#ffb84c;
+    }
+    .card2{
+        background-color:#ed85ff;
+    }
+    .card3{
+        background-color:#68edcb ;
+    }
+    
+}

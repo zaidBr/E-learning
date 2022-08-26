@@ -1,0 +1,48 @@
+.welcome{
+    margin-bottom: 0;
+    
+    .text-bnj{
+        font-size: 20px;
+        color:#ff662f ;
+        letter-spacing: 3px;
+        font-weight: bold;
+    }
+    .p-bnj{
+        font-size: 25px;
+        font-weight: 900;
+        color: #000000;
+        
+        line-height: 50px;
+    }
+    .line{
+        border-top: 2px solid #fde1ac;
+        margin-top: 50px;
+    }
+    .total-cours{
+        .total-txt{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 9px 15px;
+        background-color: #bae5f5;
+        border: 1px solid;
+        border-radius: 40px;
+        width: max-content;
+        margin-bottom: 0;
+        
+        }
+        .arrow{
+            margin-left: 488px;
+            
+        }
+        .care{
+            margin-left: 20px;
+            padding: 5px 15px;
+            border: 2px solid #ff662f;
+            color: #000;
+            font-weight: 500;
+        }
+        
+    }
+
+    
+}

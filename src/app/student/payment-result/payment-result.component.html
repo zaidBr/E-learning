@@ -1,0 +1,13 @@
+<div class="mt-5">
+    <h1 class="text-center  font-weight-bold">Detailles de votre paiement</h1>
+
+    <div [ngSwitch]="statusPayment" class="text-center ">
+        <div *ngSwitchCase="'completed'"> <h1 style="color: green">Votre paiment est completer avec succès</h1> <a [routerLink]="['/student/my-courses']" routerLinkActive="router-link-active" style="font-size: 20px;">Mes formations</a> </div>
+        <div *ngSwitchCase="'failed'"> <h3 style="color: red;"><strong>hoooops !!</strong>Votre paiement est manquante</h3> <a [routerLink]="['/student/all-courses']" routerLinkActive="router-link-active" style="font-size: 20px;">Voire liste des formationd</a> </div>
+        <div *ngSwitchCase="'pending'"> <h1 style="color: rgb(214, 112, 54);">Complétez le processus de paiement que vous avez déjà commencé </h1> <a [routerLink]="['/student/cart']" routerLinkActive="router-link-active" style="font-size: 20px;" >Panier</a> </div>
+    
+        <div *ngSwitchDefault> Resultat de paiement</div>
+    
+        <!-- <button (click)="dasipPaymentRef()">display payment ref</button> -->
+    </div>
+</div>

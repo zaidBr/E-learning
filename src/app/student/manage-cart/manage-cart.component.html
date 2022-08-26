@@ -1,0 +1,105 @@
+<app-nav-bar  ></app-nav-bar>
+<div class="cart d-flex justify-content-center " *ngIf="coursCart " >
+<div class="container">
+    <h1 class="titlee font-weight-bold">
+        Panier
+    </h1>
+    <div class=" d-flex justify-content-between ">
+    <h5 class="nb-cours">
+        <span>{{coursCart.length}}</span> formation dans le panier
+    </h5>
+    <h5 class="nb-cours tot" *ngIf="coursCart.length " >
+        Total :
+    </h5>
+</div>
+<ng-container *ngIf="!coursCart.length ;else noEmpty">
+    <div class="empty--cart w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="to-cours-list">
+            <h5>Votre panier est vide. Continuez vos achats et trouvez un cours !</h5>
+            <a [routerLink]="['/student/all-courses']"  >Continuer vos achats</a>
+        </div>
+    </div>
+</ng-container>
+
+
+
+<ng-template #noEmpty>
+    <div class="row" >
+        <div class="col-lg-9">
+            <div class="leftt">
+                <ng-container *ngFor="let cours of coursCart;let i =index">
+                <div class="row the--cart">
+                                <div class="col-lg-2">
+                                    <img src="http://127.0.0.1:8000/file/filePdf/{{cours[0].image}}" alt="" class=" img-cours">
+                                </div>
+                                <div class="col-lg-9 infos">
+                                    <div class="container">
+                                        <div class="row detail-1">
+                                            <div class="col-lg-8">
+                                                <img *ngIf="cours[0].type == 'online';else stream " height="40px" src="../../../assets/img/icons/live (1).png" alt="">
+                                                <ng-template #stream>
+                                                    <img height="35px" src="../../../assets/img/icons/record.png" alt="">
+                                                </ng-template>
+                                                <h3>{{cours[0].name}}</h3>
+                                                <h5>Par {{cours[0].formateur.name+' '+cours[0].formateur.last_name}}</h5>
+                                                <div class="stars" >
+                                                    <ngx-star-rating [disabled]="true" [ngModel]="rate(cours[0].evaluations)"   [id]="'rating'"></ngx-star-rating>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-lg-2 detail-2 d-flex mt-5 justify-content-center">
+                                                <button (click)="removeItem(cours[0].id,i)"  class="btn btn-danger remove-item ">Supprimer</button>
+                                            </div>
+                                            <div class="col-lg-2 detail-3 d-flex mt-5    justify-content-center">
+                                                <h3>{{cours[0].price}} <span class="">DT</span></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                </div>
+                </div>
+            </ng-container>
+            </div>
+        </div>
+    
+    
+        <div class="col-lg-3 validate">
+                <h1>{{totale}} DT</h1>
+                <button (click)="validateCart()" class="val-btn">Validation</button>
+                <button *ngIf="coursCart.length " (click)="emptyCart()" class="empty">Vider</button>
+        </div>
+        <p-dialog  [(visible)]="displayVal" [dismissableMask]="true" [modal]="true" [style]="{width: '50vw'}"
+        [draggable]="false" [resizable]="false">
+        <h2>Confirmer la validation de <span>{{coursCart.length}}</span> formations</h2>
+        <button (click)="confirmatePayment()" class="val-btn">Valider</button>
+      </p-dialog>
+    </div>
+</ng-template>
+</div>
+</div>
+
+
+
+
+<!-- <div class="infos">
+    <div class="row detail-1">
+        <div class="col-lg-8">
+            <img *ngIf="cours[0].type == 'online';else stream " src="../../../assets/img/icons/live (1).png" alt="">
+            <ng-template #stream>
+                <img height="35px" src="../../../assets/img/icons/record.png" alt="">
+            </ng-template>
+            <h3>{{cours[0].name}}</h3>
+            <h5>Par {{cours[0].formateur.name+' '+cours[0].formateur.last_name}}</h5>
+            <div class="stars" >
+                <ngx-star-rating [disabled]="true" [ngModel]="rate(cours[0].evaluations)"   [id]="'rating'"></ngx-star-rating>
+            </div>
+            
+        </div>
+        <div class="col-lg-2 detail-2 d-flex justify-content-center">
+            <button (click)="removeItem(cours[0].id,i)"  class="btn btn-danger remove-item ">Supprimer</button>
+        </div>
+        <div class="col-lg-2 detail-3 d-flex justify-content-center">
+            <h3>{{cours[0].price}} <span class="">DT</span></h3>
+        </div>
+    </div>
+</div> -->

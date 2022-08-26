@@ -1,0 +1,36 @@
+.comment{
+    h1{
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: #303952;
+        
+    }
+    .one-comment{
+        h4{
+            color: #6d665c;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .cmt{
+            font-weight: 600;
+        }
+    }
+}
+.stars{
+    width: max-content;
+}
+:host ::ng-deep ngx-star-rating{
+   
+    label.star{
+        padding: 4px;
+        font-size: 25px;
+        float: right;
+        
+    }
+  
+    input.star-5:checked ~ label.star:before {
+        
+        text-shadow: none !important;
+      }
+}

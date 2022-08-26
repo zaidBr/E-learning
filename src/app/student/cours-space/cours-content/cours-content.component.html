@@ -1,0 +1,13 @@
+<div class="specification">
+    <div class="container">
+        <div class="some-infos">
+            <h1 class="text-center pt-4">{{specification.name}}</h1>
+            <img src="http://127.0.0.1:8000/file/filePdf/{{specification.image}}" alt="">
+        </div>
+
+        <!-- <div [innerHTML]="specification.description" class="descreption"></div> -->
+        <h2 class="mt-5">Ce que vous apprendre dans cette formation</h2>
+        <div [innerHTML]="specification.specification" class="spec"></div>
+    </div>
+    
+</div>

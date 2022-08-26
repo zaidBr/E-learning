@@ -1,0 +1,55 @@
+<div class="jumbotron jumbotron-fluid">
+  <button (click)="goToList()" class="jumbt-btn" ><i class="far fa-arrow-alt-circle-left fa-2x" ></i></button>
+  <div class="container">
+    <h1 class="display-4 jumbt-h1" >Ajouter Categorie</h1>
+    </div>
+  </div>
+  <ng-container 
+    *ngIf="submitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      La categorie est ajouter avec succès.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+        
+      
+    <ng-container *ngIf="submitted && message == 'error'">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Problem!! </strong> verifier votre saisit
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+  <form [formGroup]="form" >
+    <div class="form-group row justify-content-end "  >
+      <input type="file" class="file-input d-none"  name="file"
+      (change)="onFileSelected($event)"
+      #fileUpload   >
+    <p class="file-name">{{fileName || "Exporter image"}}</p>
+    <button class="btn-join"
+      (click)="fileUpload.click()">
+        <img src="../../../../assets/img/attachment-clip.png" class="img-join" style="border-radius: 50%;" alt="">
+    </button>
+</div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Nom De Categorie</label>
+      <input type="text" formControlName="name" name="name" class="form-control" 
+      id="exampleFormControlInput1" placeholder="Developpement web"
+      >
+    </div>
+    <div class="form-group">
+      <angular-editor formControlName="shortDescription" name="shortDescription" [config]="editorConfig"
+      [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+  </div>
+    <div class="form-group">
+        <angular-editor formControlName="description" name="description" [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+    </div>
+    <div class=" w-100 d-flex justify-content-center">
+      <button type="submit" (click)="onSubmit()" class="btn btn-send mb-5">Ajouter</button>
+    </div>
+     
+  </form>

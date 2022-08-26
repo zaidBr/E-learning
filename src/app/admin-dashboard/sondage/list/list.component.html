@@ -1,0 +1,5 @@
+<h1>Liste des sondages</h1>
+<div class="add d-flex justify-content-end mb-4">
+  <a class="btn text-decoration-none list-add-btn" [routerLink]="['add']" >Ajouter un sondage <img src="../../../../assets/img/menu.png" alt=""></a>
+</div>
+<app-one-sondage *ngFor="let s of sondages; let i=index" [sondage]="s"></app-one-sondage>

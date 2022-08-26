@@ -1,0 +1,54 @@
+.our-categorie{
+    background-color:  #ebf1f6;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    h1{
+        font-size: 40px;
+        font-weight: 900;
+        color: #050446;
+        line-height: 50px;
+    }
+    p{
+        margin-bottom: 80px;
+    }
+    a{
+        display: flex  !important;
+    }
+    .categoryy{
+        background-color: rgb(169, 205, 207);
+        width: 320px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 2px #d1d7dc;
+        padding: 8px;
+        border-radius: 13px;
+        .img-cat{
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+        }
+            .name-nb{
+                h5{
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding-top:5px;
+                    color: #050446;
+                }
+                h6{
+                    font-size: 18px;
+                    color:#222163 ;
+                    span{
+                        color: green;
+                        font-weight: bold;
+                        font-size: 20px;
+                    }
+                }
+            }
+    }
+    .categoryy:hover{
+        transform: scale(1.01);
+    }
+    
+    
+}
+

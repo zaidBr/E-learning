@@ -1,0 +1,28 @@
+
+<app-nav-bar></app-nav-bar>
+<div class="container mt-4">
+    <h1>Liste des sondages</h1>
+    <ng-container  *ngFor="let sondage of sondages; let i=index">
+        <div class="card mb-3" >
+            <div class="card-header">
+              Créer par {{sondage.admin.name}}
+            </div>
+            <div class="card-body">
+              <h3 class="card-title font-weight-bold"> {{sondage.title}}</h3>
+              <div class="card-text" [innerHTML]="sondage.text"></div>
+              <p>Créer le : <strong>{{sondage.createdAt | date :'short'}}</strong></p>
+              <div class="reacts"  ><img [ngClass]="isMyReact(sondage.reacts) ? 'for-me' : ''" (click)="addReact(sondage.id)" class="agree" src="../../../../assets/img/agree.png" alt=""><span class="nbReacts">{{sondage.reacts.length}}</span> </div>
+              <ng-container *ngIf="sondage.reacts.length">
+                  <ul class="list-name list-unstyled" >
+                      <li *ngFor="let react of sondage.reacts" style="border-bottom: 1px solid #f9f8ff;">{{react.candidat.name}}</li>
+                     
+                    </ul>
+              </ng-container>
+            </div>
+          </div>
+        
+    </ng-container>
+</div>
+
+
+  <!-- <app-one-sondage ></app-one-sondage> -->

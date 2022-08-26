@@ -1,0 +1,145 @@
+
+  <p-dialog  [(visible)]="displayModal" [dismissableMask]="true" [modal]="true" [style]="{width: '50vw'}"
+  [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+     <h4 class="font-weight-bold">Ajouter un groupe</h4> 
+</ng-template>
+  <ng-container *ngIf="isSubmitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Groupe </strong> est bien ajouter
+      <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isSubmitted && message == 'erroe'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Erreur </strong> de saisie
+      <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+<div class="container">
+<form  [formGroup]="form">
+<div class="form-group">
+<label for=""></label>
+<input type="text" formControlName="name" id="" class="form-control" placeholder="nom du groupe" aria-describedby="helpId">
+</div>
+<div class="form-group">
+<label for=""></label>
+<input type="text" formControlName="maxSize" id="" class="form-control" placeholder="nombre maximale des etudiants" aria-describedby="helpId">
+</div>
+<button class="btn btn-success" type="submit" (click)="addGroup(cours.id)">Ajouter</button>
+</form>
+</div>
+</p-dialog>
+
+
+<p-dialog  [(visible)]="displayModalMeeting" [dismissableMask]="true" [modal]="true" [style]="{width: '50vw'}"
+  [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+   <h4 class="font-weight-bold">Ajouter un URL de Google meet</h4> 
+   <a class="meet" title="naviguer vers meet.google" href="https://meet.google.com"><img src="../../../../../assets/img/all-cours/meet.png"></a>
+</ng-template>
+  <ng-container *ngIf="isSubmitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>L'url de la séance en ligne</strong> est bien ajouter
+      <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isSubmitted && message == 'erroe'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Erreur </strong> de saisie
+      <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+<div class="container">
+<form  [formGroup]="form2">
+<div class="form-group">
+<label for=""></label>
+<input type="text" formControlName="title" id="" class="form-control" placeholder="donner un titre" aria-describedby="helpId">
+</div>
+<div class="form-group">
+<label for=""></label>
+<input type="text" formControlName="meetingUrl" id="" class="form-control" placeholder="url de la séance en ligne" aria-describedby="helpId">
+
+</div>
+<button class="btn btn-success" type="submit" (click)="addMeeting(cours.id)">Ajouter</button>
+</form>
+</div>
+</p-dialog>
+
+  <div class="card "  style="width: 18rem;" >
+    <img [src]="imgPath" (click)="showModal()" style="cursor: pointer;" height="300px" class="card-img-top" alt="...">
+    <div class="card-body">
+      <div class="d-flex bd-highlight mb-3">
+        <div class="p-2 bd-highlight"><h2 class="card-title">{{cours.name}}</h2></div>
+        <div class="ml-auto p-3 bd-highlight"><span class="prix">{{cours.price}} dt</span></div>
+      </div>
+      <p class="card-text " [innerHTML]="cours.short_description"></p>
+      <button (click)="showDetails()" class="btn btn-primary "><i title="voire détailles" class="fa fa-eye eyes "></i></button>
+    </div>
+  
+
+    <div class="box  " [ngClass]="!detailsStatus ? 'active' : ''" >
+      <div class="d-flex justify-content-between">
+        <div class="p-2 "><h4>Categorie</h4> <span class="details">{{cours.categorie.name}}</span></div>
+        <div class="p-2 "><h4>Formateur</h4> <span class="details">{{cours.formateur.name}}</span></div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="p-2 "><h4 >Type</h4> <span class="details">{{cours.type}}</span></div>
+        <div class="p-2 "><h4 >Date Debut</h4> <span class="details">{{cours.date_start}}</span></div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="p-2 "><h4 >Durée</h4> <span class="details">{{cours.periode}}</span></div>
+        <div class="p-2 " *ngIf="cours.type == 'online'"><h4 >Nb groupes</h4> <span class="details">{{cours.groups.length}}</span>
+          <ul>
+            <li *ngFor="let group of cours.groups"><h4 style="cursor: pointer;" (click)="displayModalMett()">{{group.name}}</h4></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <ng-container
+        *ngIf="cours.session_is_oppen ; then open; else close">
+      </ng-container>
+      <ng-template #open>
+        <div class="p-2 "><h4 >Etat Session</h4> <span class="details" >Session est ouvert ...</span></div>
+      </ng-template>
+      <ng-template #close>
+        <div class="p-2 "><h4 >Etat Session</h4> <span class="details" >Session est fermer ...</span></div>
+      </ng-template>
+    </div>
+     
+      
+      <hr class="line1">
+     <h3 class="text-center p-2 mb-1 desc">Description</h3>
+      <div class="description" [innerHTML]="cours.description"></div>
+
+      <a class="edit-btn"
+       [routerLink]="['/admin-dashboard/cours/edit', cours.id]"><i class="fa fa-edit"></i></a>
+          <button (click)="delete(cours.id)" class="delete-btn"><i class="fa fa-trash"></i></button>
+          <ng-container
+        *ngIf="cours.session_is_oppen ; then ferme; else ouvre">
+      </ng-container>
+      <div class=" d-inline-block">
+        <ng-template  #ferme>
+          <p class="msg-session">Ferme session?</p>
+        </ng-template>
+        <ng-template  #ouvre>
+          <p class="msg-session">ouvre session?</p>
+        </ng-template>
+        <button (click)="controleSession(cours.id)" class="session "><i class="fa fa-check-circle"></i></button>
+      </div>
+      
+    </div>
+
+  </div>
+
+  
+
+

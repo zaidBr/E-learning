@@ -1,0 +1,12 @@
+:host{
+    position: fixed;
+    top: 14px;
+    right: 70px;
+    padding: 3px;
+    z-index: 999;
+    .navbar{
+        background-color: #f6f7f9;  
+        border-radius: 12px;
+
+    }
+}

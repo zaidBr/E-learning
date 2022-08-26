@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-header">
+      Créer par {{sondage.admin.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold">Titre : {{sondage.title}}</h5>
+      <div class="card-text" [innerHTML]="sondage.text"></div>
+      <p>Créer le : {{sondage.createdAt | date :'short'}}</p>
+      <div class="reacts"><img class="agree" src="../../../../assets/img/agree.png" alt=""><span class="nbReacts">{{reacts}}</span> </div>
+      <ng-container *ngIf="listExist">
+          <ul class="list-name list-unstyled" >
+              <li style="border-bottom: 1px solid #f9f8ff;" *ngFor="let react of sondage.reacts">{{react.candidat.name}}</li>
+            </ul>
+      </ng-container>
+    </div>
+  </div>

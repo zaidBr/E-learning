@@ -1,0 +1,78 @@
+<div class="jumbotron jumbotron-fluid" >
+  <button (click)="goToList()" class="jumbt-btn" ><i class="far fa-arrow-alt-circle-left fa-2x" ></i></button>
+    <div class="container">
+      <h1 class="display-4 jumbt-h1" >Ajouter un formateur</h1>
+    </div>
+  </div>
+
+
+    <ng-container 
+    *ngIf="submitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Le formateur est ajouter avec succès.
+      <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+        
+      
+    <ng-container *ngIf="submitted && message == 'error'">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Email deja existe!</strong> verifier votre mail
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+
+  <form [formGroup]="form" >
+    <div class="form-group row justify-content-end "  >
+      <input type="file" class="file-input d-none"  name="file"
+      (change)="onFileSelected($event)"
+      #fileUpload   >
+    <p class="file-name">{{fileName || "Exporter image"}}</p>
+    <button class="btn-join"
+      (click)="fileUpload.click()">
+        <img src="../../../../assets/img/attachment-clip.png" class="img-join" style="border-radius: 50%;" alt="">
+    </button>
+</div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Nom</label>
+            <input type="text" formControlName="name" class="form-control" id="inputName">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLastName">Prenom</label>
+            <input type="text" formControlName="lastName" class="form-control" id="inputLastName">
+          </div>
+        </div>
+        <div class="form-group ">
+            <label for="inputPhone">Telephone</label>
+            <input type="text" formControlName="phone" class="form-control" id="inputPhone">
+          </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="inputEmail">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Mot De Passe</label>
+                <input type="password" formControlName="plainPassword" class="form-control" id="inputPassword" placeholder="Apartment, studio, or floor">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputConfirmPass">Confirme Mot de Passe </label>
+                <input type="password" formControlName="confirmPlainPassword" class="form-control" id="inputConfirmPass" placeholder="Apartment, studio, or floor">
+              </div>
+          </div>
+        
+    <div class="form-group">
+        <label for="inputExperience">Experience </label>
+        <angular-editor formControlName="description" id="inputExperience"  name="description" [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+    </div>
+    <div class=" w-100 d-flex justify-content-center">
+      <button (click)="onSubmit()" type="submit" class="btn btn-send mb-5">Ajouter</button>
+    </div>     
+  </form>
+    

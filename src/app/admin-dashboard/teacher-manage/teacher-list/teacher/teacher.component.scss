@@ -1,0 +1,52 @@
+:host{
+    .teacher{
+        height: 70px;
+        width:100%;
+        background-color: #e8f0fe;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding-left: 8px;
+        padding-top: 10px;
+        transition: transform 0.4s;
+        
+        img{
+            border-radius: 50%;
+            height: 50px ;
+            width: 50px;
+            margin-right: 15px;
+        }
+        .delete{
+            // width: 20px;
+            // height: 20px;
+            display: none;
+            border: none;
+            background-color: red;
+            border-radius: 10px;
+            i{
+                color: #fff !important;
+            }
+        }
+        .cord{
+            font-size: 13px;
+            font-weight: bold;
+            display: inline;
+            margin-right: 15px;
+            
+        }
+        .v{
+            border-left: 1px solid green;
+            height: 40px;
+            display: inline;
+            
+        }
+    }
+    .teacher:hover{
+        transform: translate(2px, -2px);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: transform 0.8s;
+    }
+    .teacher:hover .delete{
+        display: inline;
+    }
+    
+}

@@ -1,0 +1,18 @@
+<app-nav-bar></app-nav-bar>
+<div class="card-parent w-100 d-flex justify-content-center ">
+    <div class="card mb-5" style="width: 24rem;">
+        <img [src]="imgPath" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{currentUser.name+' '+currentUser.last_name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">CIN <img style="margin-left: 7px; margin-right:7px;" src="../../../../assets/img/right-arrow.png" alt=""> {{currentUser.cin}}</li>
+          <li class="list-group-item">Localisation <img style="margin-left: 7px; margin-right:7px;" src="../../../../assets/img/right-arrow.png" alt="">{{currentUser.location}}</li>
+          <li class="list-group-item">Email <img style="margin-left: 7px; margin-right:7px;" src="../../../../assets/img/right-arrow.png" alt="">{{currentUser.email}}</li>
+          <li class="list-group-item">Télephone <img style="margin-left: 7px; margin-right:7px;" src="../../../../assets/img/right-arrow.png" alt="">{{currentUser.phone_nbre}}</li>
+        </ul>
+        <div class="card-body">
+          <a [routerLink]="['/student/edit-profile']" class="card-link">Modifier</a>
+        </div>
+      </div>
+</div>

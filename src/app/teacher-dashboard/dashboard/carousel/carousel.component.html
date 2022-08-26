@@ -1,0 +1,39 @@
+
+  <h1 class="text-center font-weight-bold mb-5" >Mes Formations</h1>
+<div *ngIf="courses;else empty">
+  <p-carousel *ngIf="isLoaded" [value]="courses" [numVisible]="3" [showNavigators]="true" [showIndicators]="false" [numScroll]="3"  [circular]="false" [responsiveOptions]="responsiveOptions">
+      <ng-template let-cours pTemplate="item">
+            <div class="cours" *ngIf="cours.session_is_oppen">
+              <div class="container ">
+                <div class="row d-flex ">
+                  <img *ngIf="cours.type == 'online';else stream " src="../../../../assets/img/icons/live (1).png" alt="">
+                  <ng-template #stream>
+                    <img height="55px" src="../../../../assets/img/icons/record.png" alt="">
+                  </ng-template>
+                  <a [routerLink]="['/']" class="startt align-self-center ml-auto" >Entrer</a>
+                </div>
+                <div class="row">
+                  <h5 class="cours-name">{{cours.name}}</h5>
+                </div>
+                <div class="row mt-3">
+                  <h5 class="cours-date">Le {{cours.date_start | date }}</h5>
+                </div>
+                <div class="row detail ">
+                  <a [routerLink]="['cours',cours.id]" routerLinkActive="router-link-active" >
+                    <img src="../../../../assets/img/icons/information.png" alt="">
+                  </a>
+                  
+                </div>
+              </div>
+              
+            </div>
+          
+      </ng-template>
+  </p-carousel>
+  <div class="cadre3 mt-5">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<ng-template #empty>
+  <div class="nbStudent"> <h5 class="d-inline n-st">Aucune Formation</h5> </div>
+</ng-template>

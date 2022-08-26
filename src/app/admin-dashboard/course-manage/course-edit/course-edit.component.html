@@ -1,0 +1,93 @@
+<div class="jumbotron jumbotron-fluid">
+  <button (click)="goToList()" class="jumbt-btn" ><i class="far fa-arrow-alt-circle-left fa-2x" ></i></button>
+  <div class="container">
+    <h1 class="display-4 jumbt-h1" >Modifier une Formation</h1>
+    </div>
+</div>
+  <ng-container 
+    *ngIf="submitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Le formateur est modifier avec succès.
+      <button type="button"  class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+        
+      
+    <ng-container *ngIf="submitted && message == 'error'">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Probleme!! </strong> verifier votre saisit
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+  <form [formGroup]="form" (ngSubmit)="onUpdate()" enctype='multipart/form-data' >
+    <!-- <div class="form-group row justify-content-end "  >
+      <input type="file" class="file-input d-none"  name="file"
+      (change)="onFileSelected($event)"
+      #fileUpload   >
+    <p class="file-name">{{fileName || cours.image ||  "Exporter image"}}</p>
+    <button class="btn-join"
+      (click)="fileUpload.click()">
+        <img src="../../../../assets/img/attachment-clip.png" class="img-join" style="border-radius: 50%;" alt="">
+    </button>
+</div> -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Nom</label>
+            <input type="text" formControlName="name"  name="name" [(ngModel)]="cours.name" class="form-control" id="inputName">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPrix">Prix</label>
+            <input type="text" formControlName="price" name="price" [(ngModel)]="cours.price" class="form-control" id="inputPrix">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputDate">Date Start</label>
+            <input type="date" formControlName="dateStart" name="dateStart" [(ngModel)]="cours.date_start" class="form-control" id="inputDate">
+          </div>
+        <div class="form-group col-md-6">
+          <label for="inputPeride">Periode</label>
+          <input type="text" formControlName="periode" name="periode" class="form-control" [(ngModel)]="cours.periode" id="inputPeride" placeholder="Apartment, studio, or floor">
+        </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputType">Type</label>
+            <select formControlName="type" id="inputType" [(ngModel)]="cours.type" name="type" class="form-control">
+              <option value="enregistré" selected>Enregistre</option>
+              <option value="online">online</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputCategorie">Categorie</label>
+            <select id="inputCategorie" formControlName="categorieId"   [(ngModel)]="cours.categorie.name"   name="categorieId"   class="form-control">
+              <option *ngFor="let categorie of categories" [value]="categorie.id" [selected]="true"  >{{categorie.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputFormateur">Formateur</label>
+            <select id="inputFormateur" formControlName="formateurId" [(ngModel)]="cours.formateur.name" name="formateurId" class="form-control">
+              <option *ngFor="let teacher of teachers" [value]="teacher.id" [selected]="true" >{{teacher.name}}</option>
+            </select>
+          </div>
+        </div>
+    
+    <label class="d-block" for="shortDescription">Brève Description</label>
+    <div class="form-group d-flex justify-content-center">
+      <angular-editor formControlName="shortDescription" [(ngModel)]="cours.short_description" name="shortDescription" [config]="editorConfig"
+      [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+  </div>
+  <label for="description">Description</label>
+    <div class="form-group d-flex justify-content-center">
+        <angular-editor formControlName="description" name="description" [(ngModel)]="cours.description" [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+    </div>
+    <div class=" w-100 d-flex justify-content-center">
+      <button type="submit" class="btn btn-send mb-5">Modifier</button>
+    </div>     
+  </form>

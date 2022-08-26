@@ -1,0 +1,29 @@
+<ng-container 
+    *ngIf="submitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Le Text est ajouter avec succès.
+      <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+        
+      
+    <ng-container *ngIf="submitted && message == 'error'">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Probleme!! </strong> verifier votre saisit
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+<form [formGroup]="form" (ngSubmit)="addDoc()"  >
+<label for="description">Text</label>
+    <div class="form-group d-flex justify-content-center">
+        <angular-editor formControlName="text" id="description" class="d-block"  [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+    </div>
+    <div class=" w-100 d-flex justify-content-center">
+      <button type="submit" class="btn btn-send mb-5">Ajouter</button>
+    </div>
+</form>

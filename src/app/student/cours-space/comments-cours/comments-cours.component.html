@@ -1,0 +1,20 @@
+<div class="comment">
+    <h1>Commentaires</h1>
+    <hr>
+    <div class="container mt-5">
+        <ng-container *ngFor="let comment of comments.evaluations">
+            <div class="row one-comment my-5" >
+                <img height="50px" width="50px" style="border-radius:50% ;" class="mx-3" src="http://127.0.0.1:8000/file/imageUser/{{comment.candidat.image}}" alt="">
+                <div class="infos">
+                    <h4 class="pt-2">{{comment.candidat.name}}</h4>
+                    <div class="stars ">
+                        <ngx-star-rating [disabled]="true" [(ngModel)]="comment.satrs" [id]="'rating'"></ngx-star-rating> 
+                    </div>
+                    <div class="cmt mt-3" [innerHTML]="comment.comment"></div>
+                </div>
+            </div>
+            
+        </ng-container>
+        
+    </div>
+</div>

@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "SecularOne";
+    src: local("SecularOne"), url("./assets/fonts/Secular_One/SecularOne-Regular.ttf") format("truetype");
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body::-webkit-scrollbar {
+    width: 8px; /* width of the entire scrollbar */
+    
+    
+
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #abbde2; /* color of the scroll thumb */
+    // border-radius: 20px; /* roundness of the scroll thumb */
+    border: none; /* creates padding around scroll thumb */
+    border-radius: 10px;
+    border: 0.3px solid rgb(197, 194, 194);
+  }
+body{
+    font-family:Poppins;
+    margin: 0;
+    width: 100%;
+    background-color:#f4f6f9 ;
+    // background-color: red;
+
+    .img-join{
+        height: 30px;
+        width: 30px;
+        transition: ease-in-out 0.3s;
+        opacity: 0.75;
+    }
+    .img-join:hover{
+        transition: ease-in-out 0.3s;
+        opacity: 1;
+    }
+    .file-name{
+        display: flex;
+        align-self: center;
+        margin: 1px 5px;
+        color: #f1f3f5;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 3px 7px;
+        box-sizing: 1px;
+        background-color: #28a745;
+        opacity: 0.9;
+        transition: all 0.4s;
+
+    }
+    .user-img{
+        opacity: 0.9;
+        transition: all 0.4s;
+    }
+    .user-img:hover{
+        opacity: 1;
+        transition: all 0.4s;
+    }
+
+    .file-name:hover {
+     opacity: 1;
+     transition: all 0.4s;
+    }
+    .btn-join{
+        border: none;
+        background: transparent;
+    }
+    .btn-send{
+        padding: 5px 10px;
+        background-color: #111D5E;
+        color: #fff;
+        margin: 0;
+    }
+    .jumbotron{
+        background-color: #EFFFFD;
+        opacity: 0.8;
+        .jumbt-btn{
+            background-color: transparent; 
+            border:none;
+            margin-left: 30px;
+             margin-bottom: 20px; 
+             color: #f1f3f5 !important;
+        }
+        .jumbt-h1{
+            font-weight: 700;color : #000B49;
+        }
+        
+    }
+    .list-add-btn{
+        background-color: #28a745;
+        color: #fff;
+        img{
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+    }
+    .list-add-btn:hover{
+        img{
+            opacity: 1;
+            transition: all 0.4s;
+        }
+    }
+
+    
+
+
+}
+// .content{
+//     width : inherit;
+//     position: fixed;
+//     top: 50px;
+//     background: transparent;
+// }
+// app-root{
+//     display: block;
+//     min-height: 100%;
+//     max-height: 100%;
+//     max-width: 100%;
+//     min-width: 100%;
+//     width: 100%;
+// }
+// app-register{
+//     display: block;
+// }
+

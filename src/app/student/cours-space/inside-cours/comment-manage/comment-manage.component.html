@@ -1,0 +1,49 @@
+<div class="commment">
+    <h1 style="color:#0d2f4b; font-size: 32px;" > <span *ngIf="comments">{{comments?.length}}</span> Commentaires</h1>
+    <hr>
+    <h2>Laisse un commentaire</h2>
+    <ng-container 
+    *ngIf="isSubmited && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Votre commentaire est ajouter avec succès.
+      <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+    <form [formGroup]="form" > 
+        <div class="form-group " #commennt>
+          <angular-editor formControlName="comment" id="comment" [(ngModel)]="myCommet" name="comment" [config]="editorConfig"
+          ></angular-editor>
+      </div>
+        <div class=" w-100 d-flex justify-content-start">
+          <button *ngIf="!update" (click)="addComment()" type="submit" class="btn btn-send mb-5">Ajouter</button>
+          <button *ngIf="update" (click)="editComment()" type="submit" class="btn btn-send mb-5">Modifier</button>
+        </div>
+      </form>
+
+      <div  class="comment" *ngIf="comments?.length; else noComment"  #toContent>
+        <div class="container mt-5" >
+            <ng-container *ngFor="let comment of comments">
+                <div class="row one-comment mt-5 mb-3" >
+                    <img height="50px" width="50px" style="border-radius:50% ;" class="mx-3" src="http://127.0.0.1:8000/file/imageUser/{{comment.writer.image}}" alt="">
+                    <div class="infos">
+                        <div class="row">
+                            <h4 class="pt-2 mx-2">{{comment.writer.name}}</h4>
+                            <a *ngIf="comment.writer.id === currenUser.id" class="pt-2" style="cursor:pointer ; " (click)="commentTomodify(comment.id,commennt)">modifier</a>
+                        </div>
+                        <span>{{comment.createdAt | date:'short'}}</span>
+                        <div class="cmt mt-3"  [innerHTML]="comment.comment"></div>
+                    </div>
+                </div>
+                <hr>
+                
+            </ng-container>
+            
+        </div>
+    </div>
+    <ng-template #noComment>
+        <h1 class="text-center font-wheight-bold py4">Aucune commentaire</h1>
+    </ng-template>
+
+</div>

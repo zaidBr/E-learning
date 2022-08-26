@@ -1,0 +1,136 @@
+
+// :host ::ng-deep .p-carousel .p-carousel-content  {
+//     // .p-carousel-prev,.p-carousel-next{
+//     //     width: 32px;
+//     //     height: 32px;
+//     //     border-radius: 50%;
+//     //     // margin: 0 0 0 -5px;
+//     // }
+//     // .p-carousel-next{
+//     //     background-image: url('../../../../assets/img/icons/arrow-right.png');
+//     //     background-size: cover;
+//     // }
+//     // // .p-carousel-prev{
+//     // //     background-image: url('../../../../assets/img/icons/arrow-right.png');
+//     // //     background-size: cover;
+//     // //     -webkit-transform:rotate(180deg);
+//     // //     -moz-transform: rotate(180deg);
+//     // //     -ms-transform: rotate(180deg);
+//     // //     -o-transform: rotate(180deg);
+//     // //     transform: rotate(180deg);
+//     // // }
+//     // .p-carousel-next:hover{
+//     //     background-image: url('../../../../assets/img/icons/arrow-right.png');
+//     //     background-size: cover;
+//     //     transform: scale(1.1);
+//     // }
+//     // .p-carousel-prev:hover{
+        
+//     //     background-size: cover;
+//     //     transform: scale(1.1);
+  
+//     // }
+    
+//   }
+// :host{
+//     .cadre3{
+//     margin-top: 20x;
+//     margin-left: 50px;
+//     margin-right:50px;
+//     padding-bottom: 100px;
+//     }
+    
+// }
+  :host ::ng-deep .p-carousel .p-carousel-content .p-carousel-items-content {
+    .p-carousel-item{
+        .cours{
+            width: 300px;
+            height: 210px;
+            background-color: #ffb84c;
+            border-radius: 20px;
+            padding: 7px;
+        
+            .startt{
+                height: 32px;
+                width: 64px;
+                border-radius: 15px;
+                background-color: #111D5E;
+                color: #ffffff;
+                padding-top: 2px;
+                text-align: center;
+                // margin-right: ;
+                text-decoration: none;
+
+            }
+            .startt:hover{
+                transform: scale(1.03);
+                transition-delay: 0.1;
+            }
+            .cours-name{
+                font-size: 28px;
+                font-weight: bold;
+                letter-spacing: 3px;
+                color:  #000B49;
+                text-transform: capitalize;
+            }
+            .cours-date{
+                font-size: 15px;
+                font-weight: bold;
+                padding: 6px;
+                color: #000B49;
+                border-radius: 15px;
+                background-color: #bae5f5;
+            }
+            .detail{
+                margin-left: 220px;
+                
+                a{
+                    text-decoration: none;
+                    img{
+                   opacity: 0.75;
+                   
+                    }
+                    img:hover{
+                        opacity: 1;
+                        transition: all 0.4 ease-in-out;
+                    }
+                }
+                
+            }
+        }
+        .cours:hover{
+            .cours-date{
+                background-color: #71abc0;
+            }
+
+        } 
+    }
+    .p-carousel-item:nth-child(3n+1){
+        .cours{
+            background-color: #ed85ff;
+        }
+    }
+    .p-carousel-item:nth-child(2n){
+        .cours{
+            background-color: #68edcb;
+        }
+    }
+}
+.nbStudent{
+    margin-top: 50px;
+    width:250px;
+    border-radius: 15px;
+    background-color: #68edcb;
+    padding: 8px 10px;
+    box-shadow: 2px 2px 2px 1px rgba(245, 137, 49, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+
+    .n-st{
+        font-size: 20px;
+        font-weight: 700;
+        color: #000B49;
+        margin-left: 15px;
+    }
+}
+

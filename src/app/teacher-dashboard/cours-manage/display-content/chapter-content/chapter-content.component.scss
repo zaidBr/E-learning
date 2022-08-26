@@ -1,0 +1,51 @@
+.chapter-content{
+    border-radius: 20px;
+    background-color: #f5f7f7;
+    padding: 10px;
+    .addV{
+        padding: 5px 8px;
+        color: #ffffff;
+        background-color: #ffb84c;
+        border-radius: 15px;
+        text-decoration: none;
+        
+    }
+    .addV:hover{
+        transform: scale(1.1);
+    }
+    .addF{
+        padding: 5px 8px;
+        color: #ffffff;
+        background-color: #71abc0;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+    .addF:hover{
+        transform: scale(1.1);
+    }
+    .addT{
+        padding: 5px 8px;
+        color: #ffffff;
+        background-color: #ed85ff;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+    .addT:hover{
+        transform: scale(1.1);
+    }
+    .displayC{
+        padding: 5px 8px;
+        color: #ffffff;
+        background-color: #68edcb;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+    .displayC:hover{
+        transform: scale(1.1);
+    }
+
+    .var-display{
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+}

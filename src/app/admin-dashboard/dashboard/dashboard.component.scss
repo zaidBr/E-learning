@@ -1,0 +1,83 @@
+// /*
+//     DEMO STYLE
+// */
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+:host {
+    position: fixed;
+    height: 100%;
+        
+        .active {
+            margin-left: -250px;
+        }
+    
+    #sidebar{
+        height: 100%;
+        background: #343a40;
+        min-width: 250px; 
+        max-width: 250px;
+        color: #c2c7d0;
+        transition: all 0.3s;
+        box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22)!important;
+        #sidebarCollapse{
+            margin-right: -45px;
+            margin-top: 5px;
+            color: #000;
+            // background-color: #000;
+            float: right;
+            background-color: #c2c7d0;
+            transition: all 0.3s;
+
+
+        }
+        #sidebarCollapse:hover{
+            background-color: #8c929c;
+            transition: all 0.3s;
+        }
+        .sidebar-header {
+            padding: 20px;
+            background: #343a40 ;               
+        }
+        ul.components {
+            padding: 20px 20px;
+            .sub-li{
+                margin-top: 30px;
+                padding: 3px;
+                border-radius: 0.25rem;
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                }
+                }
+                li:hover{
+                        background-color: #5e6063;
+                        transition: all 0.2s;
+                    }
+                    .li1 {
+                        color: #fff;
+                        .fa-chevron-down{
+                            color: #fff;
+                            margin-left: 100px;
+                            transition: all 0.4s;
+                        }
+                    }
+                .sub-menu{
+                    margin-left:13px ;
+                    li{
+                        margin-top:10px;
+                        margin-left: 2px;
+                        padding: 3px;
+                        a{
+                            color: #fff;
+                            font-size: 15px;
+                            text-decoration: none;
+                        }
+                    }
+                    
+                }
+
+        }
+    }
+   
+}

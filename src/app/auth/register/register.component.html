@@ -1,0 +1,88 @@
+<div class="contentt d-block">
+  <h1 class="d-flex justify-content-center titlee" style="color: #fff;">Inscription</h1>
+  <div class="  d-flex justify-content-center login " >
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" 
+        >
+          <input name="name" class="form-control "
+           formControlName="name" placeholder="Prenom" id="nameId"
+           [ngClass]="{
+            'is-invalid': name.invalid && (name.dirty),
+            'is-valid': name.valid &&(name.dirty )}"
+          >
+          <div class="invalid-feedback"
+             *ngIf="name.errors && (name.dirty )">
+          <p *ngIf="name.errors.required">Le Prenom est requis</p>
+          <!-- <p *ngIf="name.errors.minlength">Nom doit etre  {{name.errors.minlength.requiredLength}} longs caractères, nous avons besoin d'un autre {{name.errors.minlength.requiredLength - name.errors.minlength.actualLength}} caractère </p> -->
+          </div>
+        </div>
+        <div class="form-group"
+        >
+            <input name="lastName" class="form-control" 
+            formControlName="lastName" placeholder="Nom" id="lastNameId"
+            [ngClass]="{
+              'is-invalid':lastName.invalid && (lastName.dirty ),
+              'is-valid': lastName.valid && (lastName.dirty )
+            }"
+            >
+            <div class="invalid-feedback"
+             *ngIf="lastName.errors && (lastName.dirty )">
+            <p *ngIf="lastName.errors.required">Le Nom est requis</p>
+            </div>
+          </div>
+          <div class="form-group"
+          >
+            <input name="email"  class="form-control" 
+            formControlName="email" placeholder="Email" id="emailId"
+            [ngClass]="{
+              'is-invalid':email.invalid && (email.dirty ),
+              'is-valid': email.valid && (email.dirty )
+            }">
+            <div class="invalid-feedback"
+             *ngIf="email.errors && (email.dirty )">
+            <p *ngIf="email.errors.required">ce champ est obligatoire</p>
+            <p *ngIf="email.errors.email">verifier votre email</p>
+            </div>
+          </div>
+        <div class="form-group"
+        >
+          <input type="password" class="form-control" 
+          id="exampleInputPassword1" placeholder="mot de passe" 
+          name="plainPassword" formControlName="plainPassword"
+          [ngClass]="{
+            'is-invalid':plainPassword.invalid && (plainPassword.dirty ),
+            'is-valid': plainPassword.valid && (plainPassword.dirty )
+          }">
+          <div class="valid-feedback"
+          *ngIf="plainPassword.dirty "
+          >
+          <p *ngIf=" (plainPassword.errors?.minlength.requiredLength <= plainPassword.errors?.minlength.actualLength) ">satisfait</p>
+          </div>
+          <div class="invalid-feedback"
+             *ngIf="plainPassword.errors && (plainPassword.dirty )">
+          <p *ngIf="plainPassword.errors.required">champ obligatoire</p>
+          <!-- <p *ngIf="plainPassword.errors.minlength">Mot de passe doit etre  {{plainPassword.errors.minlength.requiredLength}} longs caractères, nous avons besoin d'un autre {{plainPassword.errors.minlength.requiredLength - plainPassword.errors.minlength.actualLength}} caractère </p> -->
+          </div>
+        </div>
+        <div class="form-group"
+       >
+            <input name="confirmPlainPassword" class="form-control" id="confirmPassId" 
+            placeholder="confirmer mot de passe" formControlName="confirmPlainPassword" 
+            type="password"
+            [ngClass]="{
+              'is-invalid':(confirmPlainPassword.invalid || confirmPlainPassword.value != plainPassword.value) &&  (confirmPlainPassword.dirty ),
+              'is-valid': confirmPlainPassword.valid && (confirmPlainPassword.dirty )
+            }">
+            <div class="invalid-feedback"
+             *ngIf="confirmPlainPassword && plainPassword.valid && (confirmPlainPassword.dirty )">
+          <p *ngIf="confirmPlainPassword.value !== plainPassword.value ">saisit incorrecte</p>
+          </div>
+                       
+          </div>
+        <button type="submit" class="btn btne btn-block"
+        [ngClass]="{'disabled' : myForm.invalid}"
+        >Inscire</button>
+      </form>
+</div>
+</div>
+

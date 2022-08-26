@@ -1,0 +1,110 @@
+
+
+<div class="inside-cours" *ngIf="display  " >
+    <div class="container">
+        <div class="dropdown">
+            <a class="btnn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                {{chapters[index].name}}
+            </a>
+          
+            <div class="dropdown-menu menuu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" (click)="getListChapters()" *ngFor="let chapt of chapters" [routerLink]="['../../cours-content',chapt.id]"   >{{chapt.name}}</a>
+            </div>
+            
+           </div>
+          <ng-container *ngIf="chapter$ | async as chapter">
+            <div class="quiz position-absolute" *ngIf="chapter.id == lastId"> 
+                <a class="previous"  [routerLink]="['../../quiz']"  >Répondre au quiz</a>
+             </div>
+          </ng-container> 
+          <h1></h1>
+          <hr>
+          <ng-container *ngIf="chapter$ | async as chapter">
+          <h1 class="title-video my-4 ml-2" style="color:#0d2f4b">{{chapter.videos[0].title}}</h1>
+          <video class="video"  controls *ngIf="chapter.videos[0].url_video ">
+            <source src="http://127.0.0.1:8000/file/video/{{chapter.videos[0].url_video}}">
+          </video>
+          <div class="next-previous d-flex justify-content-between" >
+            <a class="previous"   [routerLink]="chapter?.id == firsId ?  ['../../cours-content',chapters[index].id] :['../../cours-content',chapters[index-1].id]  "  >Précédent</a>
+            <button (click)="displayDialog()" class="note"><span><img src=".././../../../assets/img/content-cours-chapter/star.png" alt=""></span> Attribuer une note</button>
+            <a  class="next"      [routerLink]="chapter?.id == lastId ? ['../../cours-content',chapters[index].id] : ['../../cours-content',chapters[index+1].id]"  >Suivant</a>   
+        </div>
+        <p-dialog  [(visible)]="noteDialog" [dismissableMask]="true" [modal]="true" [style]="{width: '50vw'}"
+        [draggable]="false" [resizable]="false">
+        <form [formGroup]="form" (ngSubmit)="evaluateCours()">
+          
+          <h2 class=" text-center ">Evaluer La Formation</h2>
+          <div class="starss">
+            <ngx-star-rating [(ngModel)]="coursStars"  formControlName="stars" [id]="'rating'"></ngx-star-rating>
+          </div>
+          
+          <div class="form-group">
+            <label for="comment"></label>
+              <textarea class="form-control" [(ngModel)]="coursComment" placeholder="Donner votre avis.." formControlName="comment" name="comment" id="comment" rows="2"></textarea>
+          </div>
+          <div class=" w-100 d-flex justify-content-center">
+            <button type="submit"  class="btn btn-send mb-5">Ajouter</button>
+          </div>
+        </form>
+        <hr>
+        <h2 class=" text-center ">Evaluer Le Formateur</h2>
+        <form [formGroup]="form2" (ngSubmit)="evaluateTeacher()">
+          <div class="starss">
+            <ngx-star-rating [(ngModel)]="teacherStars"  formControlName="stars" [id]="'teacher'"></ngx-star-rating>
+          </div>
+          <div class="form-group">
+            <label for="comment"></label>
+            <textarea class="form-control" [(ngModel)]="teacherComment" placeholder="Donner votre avis.." formControlName="comment" name="comment" id="comment" rows="2"></textarea>
+          </div>
+          <div class=" w-100 d-flex justify-content-center">
+            <button type="submit"  class="btn btn-send mb-5">Ajouter</button>
+          </div>
+        </form>
+      </p-dialog>
+      <ng-container *ngIf="chapter.formation.type ==='online' ">
+        <h1>Lien google meet</h1>
+        <div *ngIf="meetUrl" class="url-conference"> <a  href="{{meetUrl}}"><img class="meeting" src="../../../../assets/img/all-cours/meet.png" alt=""></a> </div>
+      </ng-container>
+        <hr>
+        <div class="nav-tabs">
+            <ul class="nav nav-noborder">
+                <li class="nav-item "> <a class="active" (click)="scroll(fichier)">Fichier</a></li>
+                <li class="nav-item "><a class="active"  (click)="scroll(contenue)">Contenue </a></li>
+                <li class="nav-item "><a class="active"  (click)="scroll(commentaire)">Commentaire</a></li>
+            </ul>
+        </div>
+        <div class="file-upload " #fichier>
+            <h1 class="mb-4" style="color:#0d2f4b" >Fichier Nécessaire</h1>
+            <table class="mx-4 table">
+              <thead>
+                <tr>
+                  <th scope="col">Titre</th>
+                  <th scope="col">Infos</th>
+                  <th scope="col">Fichier  <span style="font-size: 30px;">|</span> <img  height="40px" src="../../../../assets/img/icons/pdf.png"></th>
+                </tr>
+              </thead>
+              <tbody >
+                <ng-container *ngFor="let file of chapter.files">
+                <tr>
+                  <td><h3>{{file.title}}</h3></td>
+                  <td><div [innerHTML]="file.description"></div></td>
+                  <td><a class="" href="http://127.0.0.1:8000/file/filePdf/{{file.file_path}}" download="Fichier" target="_blank"
+                    ><span  style=" font-size: 20px;">Télécharger</span>
+                  </a></td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+        </div>
+        <div class="documentaion  " #contenue>
+                <h1 class=" mb-4" style="color:#0d2f4b" >Cours</h1>
+                <ul class="unstyled-list mx-4" *ngFor="let doc of chapter.documents">
+                  <li class="mb-4"><div class="textt" [innerHTML]="doc.text"></div></li>
+                </ul>
+        </div>        
+        <div #commentaire>
+            <app-comment-manage></app-comment-manage>
+        </div>
+
+        </ng-container>
+    </div>

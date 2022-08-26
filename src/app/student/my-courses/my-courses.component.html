@@ -1,0 +1,85 @@
+<app-nav-bar  ></app-nav-bar>
+<div class="cart d-flex justify-content-center " *ngIf="myCourses " >
+<div class="container">
+    <h1 class="titlee font-weight-bold">
+        Vos formations
+    </h1>
+    <div class=" d-flex justify-content-between ">
+    <h5 class="nb-cours">
+        <span>{{myCourses.length}}</span> Formations
+    </h5>
+</div>
+<ng-container *ngIf="!myCourses.length ;else noEmpty">
+    <div class="empty--cart w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="to-cours-list">
+            <h5> aucune formation</h5>
+            <a [routerLink]="['/student/all-courses']"  >Continuer vos achats</a>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #noEmpty>
+    <div class="row" >
+        <div class="col-lg-9">
+            <div class="leftt">
+                <ng-container *ngFor="let cours of myCourses;let i =index">
+                <div (click)="goInsideCours(cours.id)" style="cursor: pointer;" class="row mb-3 my-cours the--cart">
+                                <div class="col-lg-2">
+                                    <img src="http://127.0.0.1:8000/file/filePdf/{{cours.image}}" alt="" class=" img-cours">
+                                </div>
+                                <div class="col-lg-9 infos">
+                                    <div class="container">
+                                        <div class="row detail-1">
+                                            <div class="col-lg-8">
+                                                <img *ngIf="cours.type == 'online';else stream " height="40px" src="../../../assets/img/icons/live (1).png" alt="">
+                                                <ng-template #stream>
+                                                    <img height="35px" src="../../../assets/img/icons/record.png" alt="">
+                                                </ng-template>
+                                                <h3>{{cours.name}}</h3>
+                                                <h5>Par {{cours.formateur.name+' '+cours.formateur.last_name}}</h5>
+                                                <!-- <div class="stars" >
+                                                    <ngx-star-rating [disabled]="true" [ngModel]="rate(cours.evaluations)"   [id]="'rating'"></ngx-star-rating>
+                                                </div> -->
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                </div>
+                </div>
+            </ng-container>
+            </div>
+        </div>
+    
+    
+        
+    </div>
+</ng-template>
+</div>
+</div>
+
+
+
+
+<!-- <div class="infos">
+    <div class="row detail-1">
+        <div class="col-lg-8">
+            <img *ngIf="cours.type == 'online';else stream " src="../../../assets/img/icons/live (1).png" alt="">
+            <ng-template #stream>
+                <img height="35px" src="../../../assets/img/icons/record.png" alt="">
+            </ng-template>
+            <h3>{{cours.name}}</h3>
+            <h5>Par {{cours.formateur.name+' '+cours.formateur.last_name}}</h5>
+            <div class="stars" >
+                <ngx-star-rating [disabled]="true" [ngModel]="rate(cours.evaluations)"   [id]="'rating'"></ngx-star-rating>
+            </div>
+            
+        </div>
+        <div class="col-lg-2 detail-2 d-flex justify-content-center">
+            <button (click)="removeItem(cours.id,i)"  class="btn btn-danger remove-item ">Supprimer</button>
+        </div>
+        <div class="col-lg-2 detail-3 d-flex justify-content-center">
+            <h3>{{cours.price}} <span class="">DT</span></h3>
+        </div>
+    </div>
+</div> -->

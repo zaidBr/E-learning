@@ -1,0 +1,70 @@
+
+<!-- <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{categorie.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{categorie.description}}</h6>
+      <p class="card-text">{{categorie.createdAt}}</p>
+      <a href="#" class="card-link">{{categorie.updatedAt}</a>
+    </div>
+  </div> --> 
+
+  <!-- ******************* -->
+
+  <!-- <div class="content">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <ng-content class="card-title" select="h1"></ng-content>
+          <ng-content class="card-subtitle mb-2 text-muted" select="p"></ng-content>
+          <ng-content class="card-text" select="span"></ng-content>
+          <a class="btn btn-primary" style="padding:5px 10px" [routerLink]="['/admin-dashboard/categorie/edit', categorie.id]">Edit</a>
+          <button class="btn btn-danger" (click)="delete(categorie.id)">Delete</button>
+          <p>this is i value:{{index}}</p>
+
+        </div>
+    </div>
+  </div> -->
+
+  
+
+
+  <div class="card mt-3" style="width: 18rem; " >
+    <img [src]="imgPath" height="300px"  class="card-img-top" alt="...">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <div class="p-2"><h2 class="card-title">{{categorie.name}}</h2></div>
+        <div class="p-2"><span class="prix">{{categorie.createdAt | date: 'short'}}</span></div>
+      </div>
+      <p class="card-text " [innerHTML]="categorie.short_description"></p>
+      <button (click)="showDetails()" class="btn btn-primary "><i title="voire détailles" class="fa fa-eye eyes "></i></button>
+    </div>
+
+    <div class="box  " [ngClass]="!detailsStatus ? 'active' : ''" >
+      <div class="d-flex justify-content-center">
+        <div class="text-center "><h4 >Formations associes</h4> <span class="details">{{categorie.formations.length}}</span></div>
+        </div>
+
+        <div class="row">
+          <div class="formations col-lg-6"  *ngFor="let f of categorie.formations" >
+            <a class="formation-link"  [routerLink]="['/admin-dashboard/cours',{id:f.id}]" >{{f.name}}</a> 
+          </div>
+        </div>
+     <hr class="line1">
+     <h3 class="text-center p-2 mb-1 desc">Description</h3>
+      <div class="description" [innerHTML]="categorie.description">
+      </div>
+
+      <a class="edit-btn"
+       [routerLink]="['/admin-dashboard/categorie/edit', categorie.id]" title="modifier categorie"><i class="fa fa-edit"></i>
+      </a>
+      <ng-container  *ngIf="!categorie.formations.length">
+          <button class="delete-btn" (click)="delete(categorie.id)" title="supprimer categorie"><i class="fa fa-trash"></i></button>
+        </ng-container>
+    </div>
+
+  </div>
+
+  
+
+
+
+

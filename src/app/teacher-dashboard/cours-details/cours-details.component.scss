@@ -1,0 +1,86 @@
+.details-cours{
+    background-color: #fff1dd;
+    border-radius: 40px;
+    padding-top: 10px;
+    .chapter{
+        width:250px;
+        border-radius: 15px;
+        background-color: #ffb84c;
+        padding: 8px 10px;
+        box-shadow: 2px 2px 2px 1px rgba(245, 137, 49, 0.2);
+        margin-left: auto;
+        margin-right: auto;
+        .actual-ch{
+            font-size: 20px;
+            font-weight: 700;
+            color: #000B49;
+            margin-left: 15px;
+            
+        }
+        .total-ch{
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+
+    }
+    .public-cours{
+        margin-top: 15px;
+        width: 100%;
+        margin-bottom: 65px;
+        button{
+        border-radius: 15px;
+        width:250px;
+        background-color: #bae5f5;
+        padding: 8px 10px;
+        box-shadow: 2px 2px 2px 1px rgba(245, 137, 49, 0.2);
+        border: 1px solid transparent;
+        }
+        span{
+            font-size: 20px;
+            font-weight: 700;
+            color: #000B49;
+            text-align: center;
+        }
+        button:hover{
+            background-color:#7bb7cc;
+            transform: scale(1.02);
+        }
+    }
+    .nbStudent{
+        margin-top: 50px;
+        width:250px;
+        border-radius: 15px;
+        background-color: #ed85ff;
+        padding: 8px 10px;
+        box-shadow: 2px 2px 2px 1px rgba(245, 137, 49, 0.2);
+        margin-left: auto;
+        margin-right: auto;
+        transform: rotate(30deg);
+        .n-st{
+            font-size: 20px;
+            font-weight: 700;
+            color: #000B49;
+            margin-left: 15px;
+        }
+    }
+
+    .nbGroup{
+        margin-top: 40px;
+        width:250px;
+        border-radius: 15px;
+        background-color: #68edcb;
+        padding: 8px 10px;
+        box-shadow: 2px 2px 2px 1px rgba(245, 137, 49, 0.2);
+        margin-left: auto;
+        margin-right: auto;
+        transform: rotate(10deg);
+        .n-gr{
+            font-size: 20px;
+            font-weight: 700;
+            color: #000B49;
+            margin-left: 15px;
+        }
+    }
+}

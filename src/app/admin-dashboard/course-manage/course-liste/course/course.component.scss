@@ -1,0 +1,145 @@
+:host .card{
+    border-radius: 10px;
+    transition: transform 0.4s;
+  
+
+
+    .prix{
+        font-weight: bold;
+        font-size: 13px;
+        color: green;
+    }
+}
+:host .card:hover{
+    transform: translate(2px, -2px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.8s;
+
+}
+
+
+
+:host {
+
+    
+    .box{
+        width:250px;
+        height: 400px;
+        // background-color: rgb(216, 224, 231);
+        background-color:  #d6e6f7;
+        border-radius: 12px;
+        padding: 5px 0 5px 3px ;
+        overflow-y: scroll;
+        z-index: 9;
+        position: absolute;
+        display: block;
+        animation: fade-in 1s ease-in-out both;
+        // transition: all 1s;
+
+        .line1{
+            border-top: 1px solid rgb(85, 85, 145);
+        }
+        .desc{
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: blue;
+        }
+        
+        
+        button,.edit-btn{
+            padding: 5px 15px;
+            width: 60px;
+            margin-left: 8px;
+            border-radius: 9px;
+            border: none;
+            color: #fff;
+            text-decoration: none;
+        }
+        .formations{
+            width: 100%;
+            .formation-link{
+                color: green;
+                text-decoration: none;
+            }
+        }
+        
+
+        .edit-btn{
+            background-color: green;
+            padding: 5px 20px;
+        }
+        .delete-btn{
+            background-color: red;
+        }
+
+            .msg-session{
+                font-weight: bold;
+                color: #000;
+                font-size: 12px;
+                margin-bottom: 0;
+            }
+            .session{
+                background-color: #000B49;
+                color: #fff;
+                font-size: 12px;
+                padding: 5px;
+                margin-top: 1.5px;
+            }
+        
+        
+        .details{
+            font-size: 10px;
+            font-weight: bold;
+            color: green;
+            letter-spacing: 1px;
+            margin-top: 0;
+            display: block;
+            
+        }
+        h4{
+            font-size: 13px;
+            font-weight: bold;
+            color:blue;
+            margin-bottom: 0;
+            letter-spacing: 1.5px;
+        }
+        .description{
+            font-size: 13px;
+            font-weight: 500;
+            color: black;
+            letter-spacing: 1.4px;
+
+        }
+        .eyes{
+            transform: scale(1.1);
+        }
+        .eyes:hover{
+            transform: scale(1.1);
+        }
+
+    }
+    .active{
+        display:none;
+        animation: fade-out 1s ease-in-out both;
+        }
+        @keyframes fade-in {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 0.85;
+            }
+          }
+          @keyframes fade-out {
+            0% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 0;
+            }
+          }
+}
+.meet:hover{
+    transform: scale(1.2);
+}

@@ -1,0 +1,12 @@
+<div class="chart-wrapper" >
+    <h1 class="title-chart text-center ">Evaluations Des Formations</h1>
+    <canvas *ngIf="chartDataReady"  baseChart 
+        [datasets]="lineChartData" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+</div>

@@ -1,0 +1,78 @@
+.footeer{
+    background-color:#EFFFFD ;
+    .my-links{
+        width: max-content;
+    }
+    .fa-instagram {
+        color: transparent;
+        background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+    p{
+        font-size: 16px;
+        color: #222163;
+        line-height: 30px;
+        font-weight: 500;
+    }
+    .logo{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        margin-bottom: 20px;
+        span{
+            font-family: "SecularOne";
+        }
+        .el{
+            font-size:32px;
+            margin-left: 1px;
+            color: #000B49;
+        }
+        .e{
+            font-size: 25px;
+            // color: #6cdfd1;
+            color: #00ccff;
+        }
+        .rn{
+            font-size: 32px;
+            color: #000B49;
+        }
+    }
+    .link-f{
+        color: #000B49;
+        font-size: 30px;
+    }
+
+    .linkss{
+        color: #111D5E;
+        font-weight: 600;
+        font-size: 17px;
+    }
+
+}
+.logo{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    margin-bottom: 20px;
+    span{
+        font-family: "SecularOne";
+    }
+    .el{
+        font-size:32px;
+        margin-left: 1px;
+        color: #000B49;
+    }
+    .e{
+        font-size: 25px;
+        // color: #6cdfd1;
+        color: #00ccff;
+    }
+    .rn{
+        font-size: 32px;
+        color: #000B49;
+    }
+}

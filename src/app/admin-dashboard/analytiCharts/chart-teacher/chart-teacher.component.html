@@ -1,0 +1,12 @@
+<div class="chart-wrapper">
+  <h1 class="title-chart text-center ">Evaluations Des Formateurs</h1>
+    <canvas *ngIf="chartDataReady" baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [colors]="lineChartColors"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>

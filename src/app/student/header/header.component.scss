@@ -1,0 +1,112 @@
+.header-custom{
+    height: 400px;
+    width: 100%;
+    .left-grid{
+        background-color: #f9f8ff;
+        .container-custom{
+            padding-left: 35px;
+            padding-top: 95px;
+            
+            
+        }
+        .first-title{
+            text-transform: capitalize;
+            letter-spacing: 3px;
+            font-size: 32px;
+            color:#000B49;
+            font-weight: 900
+        }
+        .second-title{
+            text-transform: capitalize;
+            letter-spacing: 6px;
+            font-size: 27px;
+            color:#111D5E;
+            margin-bottom: 22px;
+            font-weight: 800
+        }
+        .first-p{
+            font-weight: lighter;
+            color:#274163;
+            font-size: 15px;
+            margin-bottom: 22px;
+        }
+        .btnn-header{
+            background-color: #111D5E;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 12px;
+            border:0.2px solid#111D5E; 
+        }
+    }
+    .right-grid{
+        background-color: #545fff;
+        .container-custom{
+            padding-right: 95px;
+            .main-img{
+                height: 360px;
+                width: 350px;
+                position: absolute;
+                right: 120px;
+                bottom: 0;
+            }
+            .croissant{
+                background-color: #fff;
+                transform: rotate(18deg);
+                border-radius: 13px;
+                position: absolute;
+                right: 495px;
+                top: 50px;
+                width: 160px;
+                padding: 3px;
+                z-index: 99;
+                
+                .best{
+                    font-size: 17px;
+                    // color: #274163;
+                    text-transform: capitalize;
+                    
+                }
+            }
+            .nbStudent{
+                transform: rotate(-18deg);
+                background-color: #fff;
+                border-radius: 13px;
+                position: absolute;
+                left: 80px;
+                top: 210px;
+                width: 150px;
+                z-index: 99;
+                .nb-s{
+                    color: #14a172;
+                    font-weight: bold;
+                }
+                .best{
+                    // font-size: 17px;
+                    // color: #274163;
+                    text-transform: capitalize;
+                    
+                }
+            }
+            .nbCours{
+                transform: rotate(10deg);
+                background-color: #fff;
+                border-radius: 13px;
+                position: absolute;
+                padding: 3px;
+                right: 15px;
+                top: 40px;
+                width: 150px;
+                z-index: 99;
+                .nb-c{
+                    color:#00ccff;
+                    text-transform: capitalize;
+                }
+            }
+            .img-h{
+                margin-left: 63.5px;
+            }
+
+        }
+    }
+
+}

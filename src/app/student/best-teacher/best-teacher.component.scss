@@ -1,0 +1,85 @@
+.best-teacher{
+    position: relative;
+    background-color: #cedef6;
+    height: 600px;
+
+    .left-grid{
+       h1{
+           font-size:35px;
+           color: #050446;
+           letter-spacing: 2px;
+           font-weight: 700;
+           margin-bottom: 20px;
+           margin-top: 20px;
+       }
+       p{
+           font-size: 22px;
+           line-height: 3px;
+           color: #58586e;
+           font-weight: 300;
+           margin-bottom: 20px;
+           margin-top: 20px;
+       }
+       a{
+           color: #fff;
+           background-color: #050446;
+           text-decoration: none;
+           border-radius: 8px 13px;
+           padding: 8px;
+           font-size: 20px;
+           margin-bottom: 20px;
+           margin-top: 20px;
+       }
+       a:hover{
+           transform: scale(1.05);
+       }
+       .chat{
+           position: absolute;
+           top: 350px;
+           left: 430px;
+       }
+       .specific{
+           margin-left: 30px;
+           .row{
+               box-shadow: #b3a086 0px 5px 15px;
+               border-radius: 13px;
+               width: 250px;
+               padding: 8px;
+               img{
+                   margin-left: 8px;
+               }
+               
+               h5{
+                   color: #050446;
+                   font-size: 20px;
+                   margin-left: 15px;
+                   font-weight: 600;
+                   text-transform: capitalize;
+               }
+           } 
+           
+       }
+       .f-audio{
+        margin-left: 80px;
+        margin-top: 10px;
+        background-color: #ffb020;
+    }
+    .f-video{
+     margin-left: 50px;
+     margin-top: 10px;
+     background-color: #ff605b;
+ }
+ .f-rec{
+     margin-left: 20px;
+     margin-top: 10px;
+     background-color: #00abfe;
+ }
+
+    }
+    .right-grid{
+        .main-img{
+            box-shadow: #504f4e 0px 5px 15px;
+        }
+        
+    }
+}

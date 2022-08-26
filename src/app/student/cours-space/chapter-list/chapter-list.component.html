@@ -1,0 +1,20 @@
+
+<div class="firt-show">
+    <div class="chapter-list">
+        <ul class="list-unstyled" *ngFor="let chapter of chapters">
+            <li class="chapter "><a class="p-4" [routerLink]="['cours-content',chapter.id]" routerLinkActive="active" >{{chapter.name}}</a></li>
+        </ul>
+    </div>
+
+        <nav class="nav-comments">
+            <ul>
+              <li><a [routerLink]="['specification']"  >Infos <img src="../../../../assets/img/content-cours-chapter/information.png" alt=""> </a></li>
+              <li><a [routerLink]="['./']">Commentaires <img src="../../../../assets/img/content-cours-chapter/speech-bubble.png" alt=""> </a></li>
+            </ul>
+        </nav>
+  
+    <div class="contenue">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

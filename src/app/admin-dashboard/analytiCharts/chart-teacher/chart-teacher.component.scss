@@ -1,0 +1,13 @@
+.chart-wrapper{
+    height: 370px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    .title-chart{
+        font-size: 25px;
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+    canvas{
+        height: 370px !important;
+    }
+}

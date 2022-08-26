@@ -1,0 +1,164 @@
+
+<app-nav-bar></app-nav-bar>
+<div class="display-content">
+    <div class="add-chapter py-1">
+            <button class="btn-ch w-100 d-flex justify-content-center"  (click)="showModalDialog()">
+                <div class="row ">
+                    <span class="add-ch">Chapitre</span><img class="img-add" src="../../../../assets/img/icons/plus.png">
+                </div>
+            </button>
+        
+    </div>
+    <div class="add-chapter add-quiz py-1">
+      <button class="btn-ch w-100 d-flex justify-content-center"  (click)="showModalDialogQuiz()">
+          <div class="row ">
+              <span class="add-ch">Quiz</span><img class="img-add" src="../../../../assets/img/icons/plus.png">
+          </div>
+      </button>
+  
+</div>
+    <div class="chapter-list">
+        <ul class="list-unstyled" *ngFor="let chapter of chapters">
+            <li class="chapter "><a class="p-4" [routerLink]="['content',chapter.id]" routerLinkActive="active" >{{chapter.name}}</a></li>
+        </ul>
+    </div>
+    
+    <div class="contenue">
+        <router-outlet></router-outlet>
+    </div>
+    <p-dialog [(visible)]="display" [modal]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="header">
+            <h2>Ajouter Chapitre</h2>
+        </ng-template>
+        
+        <form [formGroup]="form" (ngSubmit)="addChapter()"  >
+                  <div class="form-group">
+                    <label for="inputName">Nom De Chapitre</label>
+                    <input type="text" formControlName="name" name="name" class="form-control" id="inputName">
+                  </div>
+                  <div class=" w-100 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-send mb-5">Ajouter</button>
+                  </div>
+                </form>
+
+        <ng-template pTemplate="footer">
+            <ng-container 
+        *ngIf="isSubmited && message == 'success'">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          Le Chapitre est ajouter avec succès.
+          <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </ng-container>
+            
+          
+        <ng-container *ngIf="isSubmited && message == 'error'">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Probleme!! </strong> verifier votre saisit
+            <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </ng-container>
+        </ng-template>
+    
+    </p-dialog>
+    <p-dialog [(visible)]="listQuestion" [modal]="true" [draggable]="false" [resizable]="false">
+      <ng-template pTemplate="header">
+          <h2>Le quiz</h2>
+      </ng-template> 
+      <ng-container *ngFor="let question of questions; let i = index">
+      <ul class=" list-unstyled" >
+        <li> <span class=" font-weight-bold">Question :</span>  {{question.question}} ?</li>
+        <li> <span class=" font-weight-bold">La juste reponse :</span>  {{question.correct_answer}}</li>
+        <li> <span class=" font-weight-bold">Temps par question :</span>  {{question.time_per_question}}</li>
+        
+        <li><button (click)="deleteQuiz(question.id,i)" ><i class="fa fa-trash-alt"></i></button></li>
+        <li (click)="displayChoise(i)" class="see-choises">voir les choix</li>
+        <!-- <li *ngIf="isDisplay" class="ml-4"> -->
+          <ul  *ngIf="indice == i" class=" list-unstyled ml-4">
+            <li class=" font-weight-bold">{{question.choise_one}}</li>
+            <li class=" font-weight-bold">{{question.choise_two}}</li>
+            <li class=" font-weight-bold" *ngIf="question.choise_three">{{question.choise_three}}</li>
+            <li class=" font-weight-bold" *ngIf="question.choise_for">{{question.choise_for}}</li>
+            <li class=" font-weight-bold" *ngIf="question.choise_five">{{question.choise_five}}</li>
+          </ul>
+        <!-- </li> -->
+      </ul>
+      <hr>
+    </ng-container>
+    </p-dialog>
+
+    <p-dialog [(visible)]="displayQuiz" [modal]="true" [draggable]="false" [resizable]="false">
+      <ng-template pTemplate="header">
+          <h2>Ajouter un Quiz</h2>
+      </ng-template>
+      <button class="btn btn-info mb-3" (click)="goToQuiz()" >Voir le quiz</button>
+      <form [formGroup]="form2" (ngSubmit)="addQuestion()"  >
+        <div class="form-group">
+          <label for="question">le question</label>
+          <textarea formControlName="question" class="form-control" id="question" cols="30" rows="10"></textarea>
+        </div>
+        <!-- Deplacer la solution par un nombre de la juste reponse  -->
+        <div class="form-group">
+          <label for="correctAnswer">la juste reponse</label>
+          <input type="number"  formControlName="correctAnswer" class="form-control" id="correctAnswer"  placeholder="" aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+          <label for="timePerQuestion"> temps de chaque question</label>
+          <input type="number" formControlName="timePerQuestion" id="timePerQuestion" class="form-control" placeholder="" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">par seconde</small>
+        </div>
+        <div class="form-group">
+          <label for="question">choix 1</label>
+          <textarea formControlName="choiseOne" class="form-control" id="question" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="question">choix 2</label>
+          <textarea formControlName="choiseTwo" class="form-control" id="question" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="question">choix 3</label>
+          <textarea formControlName="choiseThree" class="form-control" id="question" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="question">choix 4</label>
+          <textarea formControlName="choiseFor" class="form-control" id="question" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="question">choix 5</label>
+          <textarea formControlName="choiseFive" class="form-control" id="question" cols="30" rows="10"></textarea>
+        </div>
+
+
+                <div class=" w-100 d-flex justify-content-center">
+                  <button type="submit" class="btn btn-send mb-5">Ajouter</button>
+                </div>
+              </form>
+              
+      <ng-template pTemplate="footer">
+          <ng-container 
+      *ngIf="isSubmited && message == 'success'">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Le Question est ajouter avec succès.
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    </ng-container>
+          
+        
+      <ng-container *ngIf="isSubmited && message == 'error'">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Probleme!! </strong> verifier votre saisit
+          <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </ng-container>
+      </ng-template>
+  
+  </p-dialog>
+</div>

@@ -1,0 +1,136 @@
+// .onClass{
+//     background-color: red;
+// }
+.poppular-course{
+    background-color: #cedef6;
+    padding-bottom: 100px;
+    .title-popular{
+        font-size: 40px;
+        font-weight: 900;
+        color: #050446;
+        margin-right: 20px;
+        margin-top: 340px;
+        line-height: 50px;
+    }
+    .carousel-custom{
+        padding-top: 60px;
+    }
+    .learning-support{
+        position: absolute;
+        top: 320px;
+        left: 130px;
+    }
+    
+}
+:host ::ng-deep .p-carousel .p-carousel-content .p-carousel-items-content {
+    
+    .p-carousel-item{
+       
+        
+        .custom-card{
+            width:300px;
+            height: 630px;
+            background-color: #66c6b9;
+            box-shadow: #b3a086 5px 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            padding: 25px;
+            
+            .img-cours{
+                position: absolute;
+                top:10px;
+                height: 200px;
+                width: 250px;
+                border-radius: 70px 20px;
+            }
+            .title-cours{
+                margin-top: 240px;
+                font-size: 25px;
+                color: #0d2f4b;
+                font-weight: 700;
+                letter-spacing: 3px;
+                margin-bottom: 20px;
+            }
+            .price{
+                background-color:#ffb020 ;
+                position: absolute;
+                top:180px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                z-index: 9999;
+                text-align: center;
+                padding-top: 13px;
+                font-weight: 600;
+            }
+            .img-teacher{
+                border-radius: 50%;
+                height: 50px;
+                width: 50px;
+                margin-right: 10px;
+            }
+            .name-teacher{
+                color: #0d2f4b;
+                text-transform: capitalize;
+                font-weight: 700;
+                padding-top: 10px;
+            }
+            .add-to-cart{
+                background-color: #7979aa;
+                border: none;
+                padding: 10px 12px;
+                margin-bottom: 15px;
+                width:200px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                h5{
+                    color: #fff;
+                }
+
+                
+
+            }
+
+        }
+        .custom-card:hover{
+            .img-cours{
+                transform:scale(1.06);
+                
+            }
+            .price{
+                background-color: #050446;
+                color: #ffb020;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+        
+    }
+    .p-carousel-item:nth-child(3n+1){
+        .custom-card{
+            background-color:#c2a2ee ;
+        }
+    }
+    .p-carousel-item:nth-child(2n){
+        .custom-card{
+            background-color: #68edcb;
+        }
+    }
+}
+.stars{
+    width: max-content;
+}
+:host ::ng-deep ngx-star-rating{
+   
+    label.star{
+        padding: 4px;
+        font-size: 20px;
+        float: right;
+        
+    }
+  
+    input.star-5:checked ~ label.star:before {
+        
+        text-shadow: none !important;
+      }
+}

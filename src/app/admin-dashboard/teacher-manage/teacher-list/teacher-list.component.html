@@ -1,0 +1,31 @@
+<h1 class="text-center   title">Liste des formateurs</h1>
+<div class="add d-flex justify-content-end mb-4">
+  <a class="btn text-decoration-none list-add-btn" [routerLink]="['add']"  >Ajouter Un Formateur <img src="../../../../assets/img/add-user (1).png" alt=""></a>
+</div>
+ 
+<div class="hteacher">
+  <div class="row">
+      <h5 class="h hI">Image</h5>
+      <h5 class="h hN">Nom</h5>
+      <h5 class="h hE">Email</h5>
+      <h5 class="h hT">Teléphone</h5>
+      <h5 class="h hF">Nb Formations</h5>
+  </div>
+</div>
+
+<app-teacher *ngFor="let t of teachers
+| paginate
+: {
+    itemsPerPage: tableSize,
+    currentPage: page,
+    totalItems: count
+  };
+let i = index"  [teacher]="t" (deleteTeacher)="deleteCours($event,i)" class="mb-2"></app-teacher>
+<div class="d-flex justify-content-center mt-5 mb-3">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>

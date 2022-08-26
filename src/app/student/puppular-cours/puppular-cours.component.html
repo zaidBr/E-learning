@@ -1,0 +1,55 @@
+<div class="poppular-course ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-3">
+                <h1 class="title-popular">Notre Meilleurs Formations</h1>
+                <img src="../../../assets/img/online-seance/learning-support.png" alt="" class="learning-support">
+            </div>
+            <div class="col-lg-9">
+                <div class="carousel-custom">
+                    <p-carousel  [value]="popCours" [numVisible]="2" [showNavigators]="true" [showIndicators]="false" [numScroll]="3"  [circular]="false" [responsiveOptions]="responsiveOptions">
+                        <ng-template let-cours pTemplate="item">
+                            <div class="custom-card" >
+                                <img src="http://127.0.0.1:8000/file/filePdf/{{cours.image}}" alt="" class="img-cours">
+                                <div class="container">
+                                    <h1 class="title-cours">{{cours.nameF}}</h1>
+                                    <div class="stars">
+                                        <ngx-star-rating [disabled]="true" [ngModel]="nomber" [id]="'rating'"></ngx-star-rating>
+                                    </div>
+                                    <span class="price">{{cours.price}}</span>
+                                    <div class="par-cours" [innerHtml]="cours.short_description"></div>
+                                    <hr>
+                                    <div class="row">
+                                        <img src="http://127.0.0.1:8000/file/imageUser/{{cours.imageFor}}" alt="" class="img-teacher">
+                                        <h5 class="name-teacher">{{cours.name}}</h5>
+                                    </div>
+                                    <hr>
+                                        <button class="add-to-cart " (click)="addToCart(cours.id)">
+                                            <h5>Ajouter au panier</h5> 
+                                        </button>
+                                </div>
+                              
+                                
+                                <!-- <div class="row">
+                                <div class="col-lg-5">
+                                    <h5></h5>
+                                    <span class="data-cours"></span>
+                                </div>
+                                <div class="col-mg-1">
+                                    <h5></h5>
+                                    <span class="data-cours"></span>
+                                </div>
+                                <div class="col-lg-5">
+                                    <h5></h5>
+                                    <span class="data-cours"></span>
+                                </div>
+                                </div> -->
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+</div>

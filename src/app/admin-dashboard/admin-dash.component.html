@@ -1,0 +1,12 @@
+ 
+ 
+ <div class="admin-dashboard d-flex flex-row align-items-stretch"> 
+    
+    <app-dashboard (contentOutlet)="changeStatus($event)" ></app-dashboard>
+    <div class="content-outlet d-inline-block" [ngClass]="contentStatus ? 'to-left' : ''">
+        <app-header-nav></app-header-nav>
+        <router-outlet></router-outlet>
+    </div>
+ </div>
+    
+   

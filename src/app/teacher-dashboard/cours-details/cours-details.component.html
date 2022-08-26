@@ -1,0 +1,79 @@
+<div class="details-cours w-100 d-flex justify-content-center align-items-center">
+    <div class="container-fluid">
+    <div class="row ">
+        <div class="col-lg-6">
+            <div class="chapter"> <img  src="../../../assets/img/icons/chapter (1).png" alt=""> <span class="actual-ch">{{cours.chapitres.length}} Chapitres /</span> <span class="total-ch">{{cours.nbChapter}}</span> </div>
+            <apx-chart 
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [plotOptions]="chartOptions.plotOptions"
+            [labels]="chartOptions.labels"
+        ></apx-chart>
+        <div class="public-cours w-100 d-flex justify-content-center" >
+            <button type="submit" (click)="editVisibility()" >
+                <img class="mr-2" src="../../../assets/img/icons/exchange.png" alt="">
+                <span class="d-inline text-center" *ngIf="!cours.is_visible;else public">{{statusPrivate}}</span>
+                <ng-template #public >
+                  <span class="d-inline text-center">{{statusPublic}}</span>
+                </ng-template>
+            </button>
+        </div>
+        <ng-container *ngIf="cours.type === 'online'" >
+        <div class="nbStudent"> <img src="../../../assets/img/icons/student.png" alt=""> <h5 class="d-inline n-st">{{nbStudent}} Participants</h5> </div>
+        <div class="nbGroup"> <img src="../../../assets/img/icons/people.png" class=""><h5 class="d-inline n-gr">{{cours.groups.length}} Groupes</h5> </div>
+      </ng-container>
+
+        </div>
+        <div class="vl"></div>
+        <div class="col-lg-6">
+            <div class="content-section implementation">
+                <div class="card">
+                    <full-calendar [options]="options"></full-calendar>
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th style="color: red;" scope="col">Tache</th>
+                                <th style="color: #111D5E;" scope="col">Date</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input class="form-control" type="text" formControlName="title" placeholder="tache"></td>
+                                <td><input class="form-control" type="date" formControlName="date" placeholder="date"></td>
+                                <td><button class="btn btn-primary" >Ajouter</button></td>
+                              </tr>
+                              
+                                <tr>
+                                    <td>
+                                    <ng-container 
+                                    *ngIf="isSubmited && message == 'success'">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        La tache est ajouter avec succès.
+                                        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="isSubmited && message == 'error'">
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Probleme!! </strong> verifier votre saisit
+                                        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    </ng-container>
+                                    </td>
+                                </tr>
+ 
+                            </tbody>
+                          </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>

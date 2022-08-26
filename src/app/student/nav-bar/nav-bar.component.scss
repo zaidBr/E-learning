@@ -1,0 +1,149 @@
+
+:host ::ng-deep app-login .contentt{
+    width: 100%;
+    height: 400px;
+    padding-top: 2px;
+    border-radius: 3px;
+    .login{
+        margin-top: 3px;
+    }
+    .btne{
+        margin-top:10px;
+    }
+}
+:host ::ng-deep app-register .contentt{
+    width: 100%;
+    height: 550px;
+    padding-top: 2px;
+    border-radius: 3px;
+    .login{
+        margin-top: 3px;
+    }
+    .btne{
+        margin-top: 50px;
+    }
+}
+:host ::ng-deep p-dialog {
+    .p-dialog{
+        border-radius: 70px;
+        .p-dialog-header{
+            border-top-right-radius :70px;
+            border-top-left-radius :70px;
+        }
+    }
+    .p-dialog-content{
+        padding: 0;
+        border-bottom-right-radius :70px;
+        border-bottom-left-radius :70px;
+    }
+}
+
+.naav{
+    margin-bottom: 30px;
+}
+.nav-item{
+    position: relative;
+    margin-right:30px ;
+    z-index: 9;
+}
+/* #navbarNav a{
+    color: #fff;
+    opacity: 0.8;
+} */
+
+#navbarNav ul li a{
+    color: #111D5E;
+    font-size: 16px;
+    font-family:Poppins;
+    font-weight: 600;
+    padding-bottom: 2px;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    transition: all 0.4s linear;    
+}
+.shop-cart{
+    position: absolute;
+    top: 12px;
+    right: 250px;
+    cursor: pointer;
+    span{
+        position: absolute;
+        right: -10px;
+        top:-10px;
+        background-color: #545fff;
+        border-radius: 50%;
+        padding: 2px;
+        text-align: center;
+        min-width: 20px;
+      
+        // height: 25px;
+        color: #fff;
+        display: inline-block;
+        font-weight: 700;
+        font-size: 16px;
+    }
+}
+.auth{
+    position: absolute;
+    right: 30px;
+    top: 8px;
+    width: 180px;
+    .row{
+        button{
+            border:none;
+            background-color: transparent;
+            padding: 8px;
+            letter-spacing: 1px;
+        }
+        .connect{
+            background-color: #EFFFFD;
+            border-radius: 8px;
+            color:#111D5E ;
+            
+        }
+        .register{
+            background-color: #000B49;
+            color: #fff;
+            border-radius: 6px;
+        }
+    }
+}
+.logo{
+    position: absolute;
+    top: 8px;
+    left:70px;
+    width: 100px;
+    cursor: pointer;
+    span{
+        font-family: "SecularOne";
+    }
+    .el{
+        font-size:32px;
+        margin-left: 1px;
+        color: #000B49;
+    }
+    .e{
+        font-size: 25px;
+        // color: #6cdfd1;
+        color: #00ccff;
+    }
+    .rn{
+        font-size: 32px;
+        color: #000B49;
+    }
+}
+#navbarNav ul li a:hover{
+     background-color: #EFFFFD; 
+    border-radius: 20px;
+    -webkit-transition: all 0.05s ;
+    -moz-transition: all 0.05s ;
+    -ms-transition: all 0.05s ;
+    transition: all 0.05s ;
+}
+.my-menu{
+    background-color: #EFFFFD;
+            border-radius: 8px;
+            color:#111D5E ;
+            
+}

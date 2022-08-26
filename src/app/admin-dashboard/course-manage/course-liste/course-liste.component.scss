@@ -1,0 +1,29 @@
+:host ::ng-deep app-course .sessionActive{
+    opacity : 0.7;
+}
+:host ::ng-deep .selected{
+    .card{
+        background-color: #d6e6f7;
+    }
+    
+}
+
+    
+
+
+// :host ::ng-deep{ 
+//     .content-cours app-course{
+//         .box{
+//             margin-left: 250px;
+//         }
+// } 
+// .content-cours:nth-child(3n) app-course{
+//     .box{
+//         margin-left: -220px;
+//     }
+// }
+// }
+
+// :host ::ng-deep app-course:nth-child(3) .box{
+// background-color: aqua;
+// }

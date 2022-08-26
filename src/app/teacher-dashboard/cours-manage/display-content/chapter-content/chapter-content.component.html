@@ -1,0 +1,14 @@
+<div class="chapter-content">
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <a [routerLink]="['add-video']" class="addV" >Ajouter Video</a>
+            <a [routerLink]="['add-file']" class="addF">Ajouter Fichier</a>
+            <a [routerLink]="['add-document']" class="addT">Ajouter Text</a>
+            <a [routerLink]="['./']" class="displayC">Afficher Contenue</a>
+        </div>
+    </div>
+    
+    <div class="var-display">
+        <router-outlet></router-outlet>
+    </div>
+</div>

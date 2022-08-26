@@ -1,0 +1,62 @@
+<div class="contentt  ">
+  
+    <h1 class="d-flex justify-content-center titlee" style="color: #fff;">Connexion</h1>
+    <div class="container">
+      <h2 *ngIf="desactiveAccount==true"><strong>hooops!!</strong> votre compte a eté désactive</h2>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="failedMessage">
+        <p class="text-center"><strong>Probleme!! </strong> verifier votre saisit</p>
+        <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="isVerifierMsg">
+        <p class="text-center"><strong>votre email </strong> est verifier </p>
+        <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="msgToVerifyEmail">
+        <p class="text-center"><strong>Vous pouvez confirmer votre email!! </strong>  aprés la connexion</p>
+        <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="shouldAuthenticated">
+        <p class="text-center"><strong>Vous devez vous connecter </strong> avant d'effectuer certaines opérations sur la plateforme</p>
+        <button type="button" class="close" data-dismiss="alert"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center login " >
+     
+      <form name="form" #forme="ngForm" (ngSubmit)="login()">
+          <div class="form-group" 
+          >
+              <input name="email"  class="form-control"
+              [(ngModel)]="form.email"
+              #email="ngModel" placeholder="Email" id="emailId"
+              >
+            </div>
+            <div class="form-group"
+            >
+              <input type="password" class="form-control" name="plainPassword"
+              id="exampleInputPassword1" placeholder="mot de passe"
+              required
+              name="plainPassword" [(ngModel)]="form.password"
+              #password="ngModel"
+              >
+              <!-- <h5>Show Password</h5>
+            <p-password [(ngModel)]="form.password" [toggleMask]="true"></p-password> -->
+
+            </div>
+            
+          <button type="submit" class="btn btne btn-block"
+          [disabled]="!forme.valid"
+          >se connecter</button>
+          <a class="d-block text-center" style="font-size: 20px;font-weight:500; color:#ffffff; margin-top:4px" [routerLink]="['/auth/register']"  > ou créer un compte</a>
+        </form>
+  </div>
+  </div>
+  
+  

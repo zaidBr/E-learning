@@ -1,0 +1,26 @@
+<h1>Liste des formations</h1>
+<div class="add d-flex justify-content-end mb-4">
+  <a class="btn text-decoration-none list-add-btn" [routerLink]="['add']" >Ajouter Une Formation <img src="../../../../assets/img/menu.png" alt=""></a>
+</div>
+<div class="row mb-2">
+    <div  *ngFor="let c of courses
+    | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+    " class="content-cours col-lg-4 mt-3">
+        <app-course  (coursDeleted)="deleteCours($event,i)" [ngClass]="c.id === selectedId ? 'selected' : '' "  [index]="i" [cours]="c">
+       </app-course>
+    </div>
+</div>
+<div class="d-flex justify-content-center mt-5 mb-3">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>

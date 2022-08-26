@@ -1,0 +1,154 @@
+.cart{
+    .the--cart{
+        box-shadow: 0 0 2px #d1d7dc;
+    }
+    
+    margin-bottom: 8px;
+    .nb-cours{
+        font-size: 20px;
+        font-weight: 700;
+        color: #3e4143;
+        span{
+            color:green;
+            margin-right: 8px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+    }
+    .tot{
+        margin-right: 195px;
+    }
+        .img-cours{
+            height: 90px;
+            width: 120px;
+            padding: 5px;
+        }
+        .infos{
+            .detail-1{
+               h3{
+                   font-size: 20px;
+                   font-weight: bold;
+                   color: #000;
+               }
+               h5{
+                   font-size: 18px;
+                   font-weight: 500;
+
+               }
+            }
+            .detail-2{
+                button{
+                    width: 90px;
+                    font-size: 16px;
+                    text-align: center;
+                    padding: 2px ;
+                    
+                }
+            }
+            .detail-3{
+                h3{
+                    font-size: 18px;
+                    color: #050446;
+                }
+            }
+        }
+        .titlee{
+            font-size: 25px;
+            font-weight: 900;
+            color: #000;
+        }
+            .cart-validation{
+                background-color: #7979aa;
+                border: none;
+                padding: 10px 12px;
+                margin-bottom: 15px;
+                width:80%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+
+.remove-item{
+    height: 30px;
+}
+            
+}
+.stars{
+    width: max-content;
+}
+:host ::ng-deep ngx-star-rating{
+   
+    label.star{
+        padding: 4px;
+        font-size: 20px;
+        float: right;
+        
+    }
+  
+    input.star-5:checked ~ label.star:before {
+        
+        text-shadow: none !important;
+      }
+}
+.validate{
+    h1{
+        font-size: 36px;
+        font-weight: bold;
+    }
+    .val-btn{
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: #7979aa;
+        color: white;
+        border: 1px solid transparent;
+    }
+    .empty{
+        width: 120px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40px;
+        background-color:#df7606;
+        border: 1px solid transparent;
+        margin-top: 80px;
+        color:white ;
+    }
+
+}
+.empty--cart{
+    .to-cours-list{
+        width: 400px;
+        height: max-content;
+        background-color: #d1d7dc;
+        padding: 20px;
+        h5{
+            font-size: 18px;
+            color:#3e4143;
+            margin-bottom: 30px;
+            
+        }
+        a{
+            width: 160px;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-top: 70px;
+            border: 1px solid transparent;
+            background-color: #7979aa;
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            // display: block;
+
+
+        }
+    }
+}
+.my-cours:hover{
+    transform: translate(2px, -2px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.8s;
+}

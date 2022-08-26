@@ -1,0 +1,47 @@
+<!-- <div class="card" style="width: 18rem;" *ngIf="teacher">
+    <div class="card-body">
+      <h4 class="card-title">{{teacher.last_name}}</h4>
+      <h5 class="card-title">{{teacher.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{teacher.phone_nbre}}</h6>
+      <p class="card-text">{{teacher.description}}</p>
+      <ul>
+          <ng-container *ngFor="let formation of teacher.formations" >
+            <li >{{formation.id}}</li>
+            <li>{{formation.name}}</li>
+          </ng-container> 
+
+      </ul>
+    </div>
+  </div> -->
+  <div class="teacher">
+    <div class=" container-fluid">
+      <div class="row">
+        <div class="col-lg-2 d-flex align-items-center justify-content-center">
+          <img height="40px" style="margin-right: 7px; border-radius: 50%;" width="40px" [src]="imgPath">
+          <div class="v"></div>
+        </div>
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3 class="cord">{{teacher.name+' '+teacher.last_name}}</h3>
+          <div class="v"></div>
+        </div>
+        
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3 class="cord">{{teacher.email}}</h3>
+          <div class="v"></div>
+        </div>
+  
+        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+          <h3 class="cord">{{teacher.phone_nbre}}</h3>
+          <div class="v"></div>
+        </div>
+        <div class="col-lg-1 d-flex align-items-center justify-content-center">
+          <h3 class="cord">{{teacher.formations.length}}</h3>
+          <ng-container *ngIf="!teacher.formations.length ">
+          <!-- <img  class="delete" src="../../../../../assets/img/delete.png" alt=""> -->
+          <button (click)="delete(teacher.id)" class="delete"><i class="fa fa-trash-alt"></i></button>
+          </ng-container>
+        </div>
+      </div>
+      
+    </div>
+  </div>

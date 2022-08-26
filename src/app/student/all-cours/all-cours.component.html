@@ -1,0 +1,180 @@
+
+
+ <app-nav-bar></app-nav-bar>
+ <div class="all-cours">
+    <div class="container">
+        <h1 class="title1">Toutes les Formations</h1>
+        <h4 class="title4"> <span class="nbCourses">{{courses.length}}</span> Formations (avec <span class="nbChapitres">{{nbChapters}}</span> chapitres) </h4>
+        <div class="sort-by d-flex justify-content-end">
+            <div class="search-sortBy">
+                <div class="form-group ">
+                    <label for="inputState"  class=" labell mt-3">Trier par...</label>
+                    <select id="inputState" [(ngModel)]="popular" class="form-control">
+                      <option class="optionn" value="date"  >PLus Récente</option>
+                      <option class="optionn" value="phighToLow" >Prix Elevé</option>
+                      <option class="optionn" value="pLowToHigh">Bas Prix</option>
+                    </select>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="title3">Filtres des Formations</h3>
+                <hr>
+                <label for="mySearch"  class=" labell mt-3">Par Nom</label>
+                <input class="form-control mr-sm-2 mb-3"  [(ngModel)]="textSearch" type="Chercher" placeholder="Search" aria-label="Search" id="mySearch">
+                <label for="catrgotieSearch labell">Par Categorie</label>
+                <select id="catrgotieSearch"  [(ngModel)]="cat"  class="form-control">
+                  <option class="optionn" [value]="''" selected>Toutes les categories</option>
+                  <ng-container *ngFor="let categorie of categoriess ">
+                  <option class="optionn" [value]="categorie.name">{{categorie.name}}</option>
+                </ng-container>
+                </select>
+                <hr>
+                <ul class="pl-2 list-unstyled">
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input my-check" type="checkbox" [(ngModel)]="online"  value="online" id="defaultCheck1">
+                            <label class="form-check-label labelll" for="defaultCheck1">
+                                En ligne
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input my-check" type="checkbox" [(ngModel)]="recorded"  value="online" id="defaultCheck2">
+                            <label class="form-check-label labelll" for="defaultCheck2">
+                                Enregistré
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9" >
+                <ng-container *ngIf="coursByID">
+                <p-dialog  [(visible)]="detailsDialog" [dismissableMask]="true" [modal]="true" [style]="{width: '50vw'}"
+                        [draggable]="false" [resizable]="false">
+                        <div class="categoriee d-flex justify-content-between mb-4">
+                            <h2>{{coursByID.name}}</h2>
+                            <h4>{{coursByID.categorie.name}}</h4>
+                        </div>
+                        <ng-container *ngIf="coursByID.type === 'online'">
+                            <div class="container">
+                                <div class="row online">
+                                    <img style="height: 32px; width:32px" class="mx-2" src="../../../assets/img/icons/people.png" alt="">
+                                    <h3>Place Libre <span >{{nbPlaceFree +'/'+ nbAllPlace}}</span> </h3>
+                                </div>     
+                            </div>
+                        </ng-container>
+                        <hr>
+                        <div class="periode">
+                            <div class="container">
+                                <div class="row">
+                                    <img style="height: 32px; width:32px" class="mx-2" src="../../../assets/img/all-cours/clock.png" alt="">
+                                    <h3>Durée <span >{{coursByID.periode}}</span> </h3> 
+                                </div>       
+                            </div> 
+                        </div>
+                        <hr>
+                        <div class=" pricee">
+                            <div class="container">
+                                <div class="row">
+                                    <img style="height: 32px; width:32px" class="mx-2" src="../../../assets//img/all-cours/coins.png" alt="">
+                                    <h3>Prix <span class="">{{coursByID.price}} DT</span></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class=" pricee">
+                            <div class="container">
+                                <div class="row">
+                                    <img style="height: 32px; width:32px" class="mx-2" src="../../../assets/img/icons/chapter (1).png" alt="">
+                                    <h3>Chapitres <span class="">{{coursByID.nbChapter}} Chapitres</span></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="teacher-details">
+                            <div class="container">
+                                <div class="row">
+                                    <img style="height: 50px; width:50px" class="mx-2" src="http://127.0.0.1:8000/file/imageUser/{{coursByID.formateur.image}}" alt="">
+                                    <h3 >{{coursByID.formateur.name}}</h3>
+                                </div>
+                                <div class="experience my-3" [innerHTML]="coursByID.formateur.description"></div>
+                            </div>
+                        </div>
+
+                        <div class="cours-details" >
+                            <div class="container">
+                                <h3>Détails</h3>
+                                <div style="font-size: 18px" [innerHTML]="coursByID.description"></div>
+                            </div>
+                        </div>
+                        <a [routerLink]="['../cours-space',coursByID.id]"  class="add-to-cart to-content my-4 " >
+                            <h5>Entrer</h5> 
+                        </a>
+
+                    </p-dialog>
+            </ng-container>
+                
+                <ng-container  *ngFor="let cours of courses | searchPipe: someTest() || cat ||  textSearch  || popular 
+                | paginate
+                : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index
+      "   >
+                  <ng-container *ngIf="cours.session_is_oppen && cours.is_visible" >
+                    <ng-container *ngIf="cours.type === 'enregistre' || (cours.type === 'online' && cours.groups.length && cours.groups[cours.groups.length - 1].users.length < cours.groups[cours.groups.length - 1].max_size) " >
+                        <div  class="row my-cours"  >
+                
+                            <div (click)="DisplaydetailsDialog(cours.id)" class="cont-img col-md-4">
+                                <img  class="img-cours" height="100%" width="100%" src="http://127.0.0.1:8000/file/filePdf/{{cours.image}}" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <!-- <button (click)="DisplaydetailsDialog()">details</button> -->
+                                    <h3 (click)="DisplaydetailsDialog(cours.id)"  class="mt-2  name-cours">{{cours.name}}</h3>
+                                    <img *ngIf="cours.type == 'online';else stream " height="40px" src="../../../assets/img/icons/live (1).png" alt="">
+                                                    <ng-template #stream>
+                                                        <img height="35px" src="../../../assets/img/icons/record.png" alt="">
+                                                    </ng-template>
+                                <div class="mt-2" [innerHTML]="cours.short_description">
+                                </div>
+                                <div class="row  d-flex justify-content-between">
+                                    <div class="chapteers row my-4">
+                                        <img width="32px" height="32px" src="../../../assets/img/icons/chapter (1).png" alt="">
+                                        <span class="nb-chapt">{{cours.nbChapter}} Chapitres</span>
+                                    </div>
+                                    <button class="add-to-cart  my-4 " (click)="addToCart(cours.id)" >
+                                        <h5>Ajouter au panier</h5> 
+                                    </button>
+                                </div>
+                                    
+                                    <span class="price">{{cours.price}} DT</span>
+                                
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                    </ng-container>
+                    
+
+                  </ng-container>
+                
+
+
+            </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
+ </div>

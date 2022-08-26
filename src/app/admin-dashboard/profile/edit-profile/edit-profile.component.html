@@ -1,0 +1,93 @@
+<div class="jumbotron jumbotron-fluid">
+    <button (click)="goToList()" class="jumbt-btn" ><i class="far fa-arrow-alt-circle-left fa-2x" ></i></button>
+    <div class="container">
+      <h1 class="display-4 jumbt-h1" >Modifier Profile</h1>
+      </div>
+  </div>
+    <ng-container 
+      *ngIf="submitted && message == 'success'">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Les données sont modifier avec succès.
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+          
+        
+      <ng-container *ngIf="submitted && message == 'error'">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Probleme!! </strong> verifier votre saisit
+          <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </ng-container>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()"  >
+      <div class="form-group row justify-content-end "  >
+        <input type="file"  class="file-input d-none" name="file" 
+        (change)="onFileSelected($event)"
+        #fileUpload >
+      <button class="btn-join"
+        (click)="fileUpload.click()">
+        <img [src]="imgPath" height="70px" class="user-img" width="70px" style="border-radius: 50%;"  alt="" *ngIf="currentUser.image"> 
+        <img src="../../../assets/img/userDefault.png" class="user-img" height="70px" width="70px"  *ngIf="!currentUser.image"  style="border-radius: 50%;" alt="">
+        <p class="file-name mt-2" *ngIf="currentUser.image; else import">Changer Photo</p>
+        <ng-template #import><p class="file-name mt-2" >Ajouter Photo</p></ng-template>
+        
+      </button>
+  </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Nom</label>
+              <input type="text" formControlName="name" [(ngModel)]="currentUser.name" name="name" class="form-control" id="inputName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastN">Prenom</label>
+              <input type="text" formControlName="lastName" name="lastName" [(ngModel)]="currentUser.last_name" class="form-control" id="inputLastN">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAge">Age</label>
+              <input type="text" formControlName="age" name="age" [(ngModel)]="currentUser.age" class="form-control" id="inputAge">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCin">Cin</label>
+              <input type="text" formControlName="cin" name="cin" [(ngModel)]="currentUser.cin" class="form-control" id="inputCin">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPh">Phone</label>
+              <input type="text" formControlName="phone" [(ngModel)]="currentUser.phone_nbre" name="phone" class="form-control" id="inputPh">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputGov">Localisation</label>
+                <select id="inputGov" formControlName="location" [(ngModel)]="currentUser.location" name="location" class="form-control">
+                  <option *ngFor="let g of governorates" [value]="g" [selected]="true"  >{{g}}</option>
+                </select>
+            </div>
+          </div>
+          <h3 class="text-center my-5">Changer votre mot de passe si tu peux</h3>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="actualP">Mot De Passe Actuel</label>
+              <input type="password" formControlName="actulaPass"  name="actulaPass" class="form-control" id="actualP">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="INPUTM">Nouvelle Mot De Passe</label>
+              <input type="password" formControlName="plainPassword"  name="plainPassword" class="form-control" id="INPUTM">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputLastCP">Confirmer Mot De Passe</label>
+              <input type="password" formControlName="confirmPlainPassword" name="confirmPlainPassword"  class="form-control" id="inputLastCP">
+            </div>
+          </div>
+      <div class=" w-100 d-flex justify-content-center">
+        <button type="submit" class="btn btn-send mb-5">Ajouter</button>
+      </div>
+       
+    </form>

@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between" id="chart" >
+  <div>
+    <apx-chart *ngIf="rate" 
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [plotOptions]="chartOptions.plotOptions"
+    [labels]="chartOptions.labels"
+  ></apx-chart><img class="d-inline img-arrow" style="margin-left: 7px; margin-right:7px;" src="../../../../assets/img/icons/right-arrow (1).png" alt="">
+  <h5 class="nb-evaluateur"><span style="color:#126685 ;">{{data[0][0].nbPerson}}</span> Evaluateurs</h5>
+  </div>
+   
+    <div>
+      <apx-chart *ngIf="rate" 
+    [series]="chartOptions2.series"
+    [chart]="chartOptions2.chart"
+    [plotOptions]="chartOptions2.plotOptions"
+    [labels]="chartOptions2.labels"
+  ></apx-chart><img class="d-inline img-arrow2" style="margin-left: 7px; margin-right:7px;" src="../../../../assets/img/icons/right-arrow (1).png" alt="">
+  <h5 class="exp">Experience</h5>
+    </div>
+    
+  </div>
+  

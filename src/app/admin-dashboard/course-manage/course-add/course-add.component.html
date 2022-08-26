@@ -1,0 +1,114 @@
+<div class="jumbotron jumbotron-fluid">
+  <button (click)="goToList()" class="jumbt-btn" ><i class="far fa-arrow-alt-circle-left fa-2x" ></i></button>
+  <div class="container">
+    <h1 class="display-4 jumbt-h1" >Ajouter une formation</h1>
+    </div>
+</div>
+  <ng-container 
+    *ngIf="submitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      La formation est ajouter avec succès.
+      <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+        
+      
+    <ng-container *ngIf="submitted && message == 'error'">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Probleme!! </strong> verifier votre saisit
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="this.msgDate">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>La date</strong> doit etre superier au date courant!! 
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+
+  <form [formGroup]="form"  >
+    <div class="form-group row justify-content-end "  >
+      <input type="file" class="file-input d-none"  name="file"
+      (change)="onFileSelected($event)"
+      #fileUpload   >
+    <p class="file-name">{{fileName || "Exporter image"}}</p>
+    <button class="btn-join"
+      (click)="fileUpload.click()">
+        <img src="../../../../assets/img/attachment-clip.png" class="img-join" style="border-radius: 50%;" alt="">
+    </button>
+</div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Nom</label>
+            <input type="text" formControlName="name" name="name" class="form-control" id="inputName">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPrix">Prix</label>
+            <input type="number" formControlName="price" name="price" class="form-control" id="inputPrix">
+          </div>
+        </div> 
+        <div class="form-row ">
+            <div class="form-group col-md-4">
+              <label for="inputDate">Date Début</label>
+              <input type="date" formControlName="dateStart" name="dateStart" class="form-control" id="inputDate">
+            </div>
+          <div class="form-group col-md-4">
+            <label for="inputPeride">Durée</label>
+            <input type="text" formControlName="periode" name="periode" class="form-control" id="inputPeride" placeholder="Apartment, studio, or floor">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="nbChapter">Nombre Des Chapitrs</label>
+            <input type="number" formControlName="nbChapter" name="nbChapter" class="form-control" id="nbChapter" placeholder="Nb Chapitres">
+          </div>
+        </div>
+        
+        <div class="form-row ">
+          <div class="form-group col-md-4">
+            <label for="inputType">Type</label>
+            <select formControlName="type" name="type" id="inputType" class="form-control">
+              <option value="enregistre" selected>Enregistre</option>
+              <option value="online">online</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputCategorie">Categorie</label>
+            <select id="inputCategorie" formControlName="categorieId" name="categorieId" class="form-control">
+              <option *ngFor="let categorie of categories" value="{{categorie.id}}">{{categorie.name}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputFormateur">Formateur</label>
+            <select id="inputFormateur" formControlName="formateurId" name="formateurId" class="form-control">
+              <option *ngFor="let teach of teachers" value="{{teach.id}}">{{teach.name}}</option>
+              
+            </select>
+          </div>
+        </div>
+        
+        
+        <label class="d-block" for="shortDescription">Brève Description</label>
+    <div class="form-group d-flex justify-content-center">
+      <angular-editor formControlName="shortDescription" id="shortDescription" name="shortDescription" [config]="editorConfig"
+      [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+  </div>
+  <label for="description">Description</label> 
+    <div class="form-group d-flex justify-content-center">
+        <angular-editor formControlName="description" id="description" class="d-block" name="description" [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+    </div>
+    <label for="specification">Specification</label> 
+    <div class="form-group d-flex justify-content-center">
+        <angular-editor formControlName="specification" id="specification" class="d-block" name="specification" [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }"></angular-editor>
+    </div>
+    <div class=" w-100 d-flex justify-content-center">
+      <button type="submit" (click)="onSubmit()" class="btn btn-send mb-5">Ajouter</button>
+    </div>
+     
+  </form>

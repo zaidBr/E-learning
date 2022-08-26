@@ -1,0 +1,42 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <button (click)="goToList()" class="jumbt-btn" ><i class="far fa-arrow-alt-circle-left fa-2x" ></i></button>
+  <div class="container">
+    <h1 class="display-4 jumbt-h1" >Ajouter un sondage</h1>
+  </div>
+  </div>
+  <ng-container 
+    *ngIf="submitted && message == 'success'">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Le  Sondage est bien publier .
+      <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
+        
+      
+    <ng-container *ngIf="submitted && message == 'error'">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Probleme!! </strong> verifier votre saisit
+        <button type="button" class="close" data-dismiss="alert" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </ng-container>
+
+  <form [formGroup]="form" (ngSubmit)="addSondage()"  >
+    <div class="form-group ">
+        <label for="inputtitle">Titre</label>
+        <input type="text" formControlName="title" name="title" class="form-control" id="inputtitle">
+      </div>
+      <label class="d-block" for="sondageInput">Sondage</label>
+      <div class="form-group d-flex justify-content-center">
+        <angular-editor formControlName="text" id="sondageInput" name="text" [config]="editorConfig"
+        [ngClass]="{ 'is-invalid': submitted && form.controls.text.errors }"></angular-editor>
+    </div>
+    <div class=" w-100 d-flex justify-content-center">
+        <button type="submit" class="btn btn-send mb-5">Ajouter</button>
+      </div>
+     
+  </form>
